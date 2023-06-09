@@ -3,7 +3,5 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-
-.wp-block-create-block-parfait-designs-post-slider {
-	border: 1px dotted #f00;
-}
+@use "./assets/css/utilities";
+@use "./assets/css/post-slider";
