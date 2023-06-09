@@ -46,6 +46,15 @@ const colors = [
 	{ name: "white", color: "white" },
 ];
 
+const units = [
+	{ value: "px", label: "px", default: 0 },
+	{ value: "%", label: "%", default: 10 },
+	{ value: "vw", label: "vw", default: 0 },
+	{ value: "vh", label: "vh", default: 0 },
+	{ value: "rem", label: "rem", default: 0 },
+	{ value: "em", label: "em", default: 0 },
+];
+
 export default function Edit({ attributes, setAttributes }) {
 	const categories = useSelect(
 		(select) => select("core").getEntityRecords("taxonomy", "category"),
@@ -97,6 +106,15 @@ export default function Edit({ attributes, setAttributes }) {
 								},
 							})
 						}
+					/>
+					<UnitControl
+						value={attributes.content.minHeight}
+						onChange={(value) =>
+							setAttributes({
+								content: { ...attributes.content, minHeight: value },
+							})
+						}
+						units={units}
 					/>
 				</fieldset>
 				<fieldset>

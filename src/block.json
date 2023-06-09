@@ -14,7 +14,8 @@
 				"alignment": "center-center",
 				"showTitle": true,
 				"showExcerpt": true,
-				"showLink": true
+				"showLink": true,
+				"minHeight": null
 			}
 		},
 		"buttons": {
