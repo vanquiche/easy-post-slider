@@ -47,6 +47,11 @@ const colors = [
 	{ name: "white", color: "#f6fff8" },
 ];
 
+const bgColors = [
+	{ name: "charcoal", color: "#465362" },
+	{ name: "eggshell", color: "#e7ecef" },
+];
+
 const units = [
 	{ value: "px", label: "px", default: 0 },
 	{ value: "%", label: "%", default: 10 },
@@ -191,7 +196,7 @@ export default function Edit({ attributes, setAttributes }) {
 						<ColorPalette
 							style={{ marginTop: "12px" }}
 							id="background-color-control"
-							colors={colors}
+							colors={bgColors}
 							value={attributes.coverImage.bgColor}
 							onChange={(value) =>
 								setAttributes({
