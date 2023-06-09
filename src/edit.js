@@ -222,7 +222,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 			<div
 				{...useBlockProps({
-					className: "post-slider editor-post-slider",
+					className: `post-slider editor-post-slider align-content--${attributes.content.alignment}`,
 					style: {
 						height: attributes.content.minHeight
 							? attributes.content.minHeight
@@ -245,8 +245,9 @@ export default function Edit({ attributes, setAttributes }) {
 								{attributes.content.showLink}
 							</span>
 							<span
-								id="link-overlay"
+								id="button-overlay"
 								className="post-slider__link-overlay"
+								style={{ backgroundColor: attributes.buttons.color }}
 								aria-hidden
 							></span>
 						</a>
@@ -259,12 +260,19 @@ export default function Edit({ attributes, setAttributes }) {
 						aria-hidden
 					>
 						<div
-							className="post-slider__scrollbar-position"
-							style={{ backgroundColor: attributes.scrollbar.color }}
+							className="post-slider__scrollbar-inner"
+							style={{
+								backgroundColor: attributes.scrollbar.color,
+								width: "75%",
+							}}
 						></div>
 						<div
-							className="post-slider__scrollbar-overlay"
-							style={{ backgroundColor: attributes.scrollbar.color }}
+							className="post-slider__scrollbar-inner"
+							style={{
+								backgroundColor: attributes.scrollbar.color,
+								width: "100%",
+								opacity: 0.5,
+							}}
 						></div>
 					</div>
 				)}
@@ -273,16 +281,26 @@ export default function Edit({ attributes, setAttributes }) {
 					className="post-slider__navigation-button left"
 					aria-label="previous slide"
 				>
-					<i aria-hidden>left</i>
-					<span className="button-overlay"></span>
+					<i className="caret-left" aria-hidden>
+						left
+					</i>
+					<span
+						className="button-overlay"
+						style={{ backgroundColor: attributes.buttons.color }}
+					></span>
 				</button>
 				<button
 					id="post-slider-right"
 					className="post-slider__navigation-button right"
 					aria-label="next slide"
 				>
-					<i aria-hidden>right</i>
-					<span className="button-overlay"></span>
+					<i className="caret-right" aria-hidden>
+						right
+					</i>
+					<span
+						className="button-overlay"
+						style={{ backgroundColor: attributes.buttons.color }}
+					></span>
 				</button>
 			</div>
 		</>

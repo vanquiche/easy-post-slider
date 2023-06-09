@@ -5,3 +5,10 @@
  */
 @use "./assets/css/utilities";
 @use "./assets/css/post-slider";
+
+.editor-post-slider {
+	background-image: url("./assets/icons/image-regular.svg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 300px;
+}
