@@ -11,7 +11,10 @@
 		"content": {
 			"type": "object",
 			"default": {
-				"alignment": "center center"
+				"alignment": "center-center",
+				"showTitle": true,
+				"showExcerpt": true,
+				"showLink": true
 			}
 		},
 		"buttons": {
@@ -24,6 +27,7 @@
 		"scrollbar": {
 			"type": "object",
 			"default": {
+				"showScrollbar": true,
 				"color": "#fff"
 			}
 		},
