@@ -187,6 +187,22 @@ export default function Edit({ attributes, setAttributes }) {
 							max={100}
 							step={10}
 						/>
+						<label for="background-color-control">Background Color</label>
+						<ColorPalette
+							style={{ marginTop: "12px" }}
+							id="background-color-control"
+							colors={colors}
+							value={attributes.coverImage.bgColor}
+							onChange={(value) =>
+								setAttributes({
+									coverImage: {
+										...attributes.coverImage,
+										bgColor: value,
+										fontColor: getContrastColor(value),
+									},
+								})
+							}
+						/>
 					</fieldset>
 					<fieldset>
 						<h2>Query</h2>
@@ -243,6 +259,7 @@ export default function Edit({ attributes, setAttributes }) {
 						height: attributes.content.minHeight
 							? attributes.content.minHeight
 							: "",
+						backgroundColor: attributes.coverImage.bgColor,
 					},
 				})}
 			>
