@@ -7,6 +7,41 @@
 	"category": "widgets",
 	"icon": "cover-image",
 	"description": "A custom dynamic block to query and display your posts in a slider component.",
+	"attributes": {
+		"content": {
+			"type": "object",
+			"default": {
+				"alignment": "center center"
+			}
+		},
+		"buttons": {
+			"type": "object",
+			"default": {
+				"color": "#fff",
+				"opacity": 100
+			}
+		},
+		"scrollbar": {
+			"type": "object",
+			"default": {
+				"color": "#fff"
+			}
+		},
+		"coverImage": {
+			"type": "object",
+			"default": {
+				"opacity": 100
+			}
+		},
+		"query": {
+			"type": "object",
+			"default": {
+				"posts_per_page": 1,
+				"cat": 1,
+				"tag_slug__in": []
+			}
+		}
+	},
 	"supports": {
 		"html": false
 	},
