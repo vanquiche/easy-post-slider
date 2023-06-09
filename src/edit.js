@@ -202,7 +202,33 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 				</fieldset>
 			</InspectorControls>
-			<div {...useBlockProps()}></div>
+			<div {...useBlockProps()}>
+				{attributes.content.showTitle && (
+					<h2>{attributes.content.showTitle}</h2>
+				)}
+				{attributes.content.showExcerpt && (
+					<p>{attributes.content.showExcerpt}</p>
+				)}
+				{attributes.content.showLink && (
+					<div>
+						<a>
+							<span>{attributes.content.showLink}</span>
+							<span id="link-overlay" aria-hidden></span>
+						</a>
+					</div>
+				)}
+				{attributes.scrollbar.showScrollbar && (
+					<div id="post-slider-scrollbar"></div>
+				)}
+				<button id="post-slider-left" aria-label="previous slide">
+					<i aria-hidden>left</i>
+					<span className="button-overlay"></span>
+				</button>
+				<button id="post-slider-right" aria-label="next slide">
+					<i aria-hidden>right</i>
+					<span className="button-overlay"></span>
+				</button>
+			</div>
 		</>
 	);
 }
