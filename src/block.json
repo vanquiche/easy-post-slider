@@ -22,7 +22,7 @@
 			"type": "object",
 			"default": {
 				"fontColor": "black",
-				"color": "f6fff8",
+				"bgColor": "#f6fff8",
 				"opacity": 100
 			}
 		},
@@ -30,13 +30,15 @@
 			"type": "object",
 			"default": {
 				"showScrollbar": true,
-				"color": "#fff"
+				"color": "#f6fff8"
 			}
 		},
 		"coverImage": {
 			"type": "object",
 			"default": {
-				"opacity": 100
+				"opacity": 100,
+				"bgColor": "#f6fff8",
+				"fontColor": "black"
 			}
 		},
 		"query": {

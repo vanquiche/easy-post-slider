@@ -32,7 +32,7 @@
 	position: absolute;
 	height: 100%;
 	inset: 0;
-	background-color: lightblue;
+	background-color: rgb(199, 199, 199);
 	background-image: url("./assets/icons/image-regular.svg");
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -92,6 +92,7 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
+	z-index: 100;
 }
 
 .slide__scrollbar-inner {

@@ -132,7 +132,7 @@ export default function Edit({ attributes, setAttributes }) {
 								setAttributes({
 									buttons: {
 										...attributes.buttons,
-										color: value,
+										bgColor: value,
 										fontColor: getContrastColor(value),
 									},
 								})
@@ -268,11 +268,11 @@ export default function Edit({ attributes, setAttributes }) {
 				)}
 				{attributes.content.showExcerpt && (
 					<p className="slide__excerpt">
-						This is the Post Excerpt. Lorem ipsum dolor sit amet, consectetur
-						adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-						dolore magna aliqua. Urna molestie at elementum eu facilisis sed
-						odio morbi. Neque convallis a cras semper auctor neque vitae tempus
-						quam. Vitae et leo duis ut diam quam nulla porttitor.
+						So she was considering in her own mind (as well as she could, for
+						the hot day made her feel very sleepy and stupid) whether the
+						pleasure of making a daisy-chain would be worth the trouble of
+						getting up and picking the daisies, when suddenly a White Rabbit
+						with pink eyes ran close by her.
 					</p>
 				)}
 				{attributes.content.showLink && (
@@ -288,7 +288,7 @@ export default function Edit({ attributes, setAttributes }) {
 								id="button-overlay"
 								className="slide__link-overlay blur-bg"
 								style={{
-									backgroundColor: attributes.buttons.color,
+									backgroundColor: attributes.buttons.bgColor,
 									opacity: attributes.buttons.opacity + "%",
 								}}
 								aria-hidden
@@ -324,7 +324,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<span
 						className="button-overlay blur-bg"
 						style={{
-							backgroundColor: attributes.buttons.color,
+							backgroundColor: attributes.buttons.bgColor,
 							opacity: attributes.buttons.opacity + "%",
 						}}
 					></span>
@@ -338,7 +338,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<span
 						className="button-overlay blur-bg"
 						style={{
-							backgroundColor: attributes.buttons.color,
+							backgroundColor: attributes.buttons.bgColor,
 							opacity: attributes.buttons.opacity + "%",
 						}}
 					></span>
