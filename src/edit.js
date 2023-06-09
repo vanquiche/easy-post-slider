@@ -5,6 +5,7 @@
  */
 import { __ } from "@wordpress/i18n";
 import { useSelect } from "@wordpress/data";
+import getContrastColor from "./assets/js/getContrastColor";
 
 import {
 	RangeControl,
@@ -41,9 +42,9 @@ import "./editor.scss";
  */
 
 const colors = [
-	{ name: "red", color: "red" },
-	{ name: "black", color: "black" },
-	{ name: "white", color: "white" },
+	{ name: "red", color: "#dd1c1a" },
+	{ name: "black", color: "#343a40" },
+	{ name: "white", color: "#f6fff8" },
 ];
 
 const units = [
@@ -129,7 +130,11 @@ export default function Edit({ attributes, setAttributes }) {
 							value={attributes.buttons.color}
 							onChange={(value) =>
 								setAttributes({
-									buttons: { ...attributes.buttons, color: value },
+									buttons: {
+										...attributes.buttons,
+										color: value,
+										fontColor: getContrastColor(value),
+									},
 								})
 							}
 						/>
@@ -256,7 +261,12 @@ export default function Edit({ attributes, setAttributes }) {
 				{attributes.content.showLink && (
 					<div className="slide__link-container">
 						<a className="slide__link">
-							<span className="slide__link-label">Read More</span>
+							<span
+								className="slide__link-label"
+								style={{ color: attributes.buttons.fontColor }}
+							>
+								Read More
+							</span>
 							<span
 								id="button-overlay"
 								className="slide__link-overlay blur-bg"

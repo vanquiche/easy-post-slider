@@ -21,7 +21,8 @@
 		"buttons": {
 			"type": "object",
 			"default": {
-				"color": "#fff",
+				"fontColor": "black",
+				"color": "f6fff8",
 				"opacity": 100
 			}
 		},
