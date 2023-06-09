@@ -20,6 +20,34 @@
 	}
 }
 
+.slide__excerpt {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.slide__link {
+	min-width: fit-content;
+	width: 150px;
+	height: 75px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0.25rem 0;
+}
+
+.slide__link-label {
+	position: relative;
+	z-index: 10;
+}
+
+.slide__link-overlay {
+	height: 100%;
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
 .slide__scrollbar {
 	position: absolute;
 	height: 10px;

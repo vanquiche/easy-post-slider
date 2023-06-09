@@ -109,6 +109,7 @@ export default function Edit({ attributes, setAttributes }) {
 							}
 						/>
 						<UnitControl
+							className="editor-post-slider-units-control"
 							value={attributes.content.minHeight}
 							onChange={(value) =>
 								setAttributes({
@@ -244,7 +245,13 @@ export default function Edit({ attributes, setAttributes }) {
 					<h2 className="slide__title">Post Title</h2>
 				)}
 				{attributes.content.showExcerpt && (
-					<p className="slide__excerpt">This is the Post Excerpt</p>
+					<p className="slide__excerpt">
+						This is the Post Excerpt. Lorem ipsum dolor sit amet, consectetur
+						adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Urna molestie at elementum eu facilisis sed
+						odio morbi. Neque convallis a cras semper auctor neque vitae tempus
+						quam. Vitae et leo duis ut diam quam nulla porttitor.
+					</p>
 				)}
 				{attributes.content.showLink && (
 					<div className="slide__link-container">
@@ -252,8 +259,11 @@ export default function Edit({ attributes, setAttributes }) {
 							<span className="slide__link-label">Read More</span>
 							<span
 								id="button-overlay"
-								className="slide__link-overlay"
-								style={{ backgroundColor: attributes.buttons.color }}
+								className="slide__link-overlay blur-bg"
+								style={{
+									backgroundColor: attributes.buttons.color,
+									opacity: attributes.buttons.opacity + "%",
+								}}
 								aria-hidden
 							></span>
 						</a>
@@ -285,7 +295,7 @@ export default function Edit({ attributes, setAttributes }) {
 				>
 					<i className="caret-left" aria-hidden></i>
 					<span
-						className="button-overlay"
+						className="button-overlay blur-bg"
 						style={{
 							backgroundColor: attributes.buttons.color,
 							opacity: attributes.buttons.opacity + "%",
@@ -299,7 +309,7 @@ export default function Edit({ attributes, setAttributes }) {
 				>
 					<i className="caret-right" aria-hidden></i>
 					<span
-						className="button-overlay"
+						className="button-overlay blur-bg"
 						style={{
 							backgroundColor: attributes.buttons.color,
 							opacity: attributes.buttons.opacity + "%",
