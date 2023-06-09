@@ -4,13 +4,40 @@
  * Replace them with your own styles or remove the file completely.
  */
 @use "./assets/css/utilities";
-@use "./assets/css/post-slider";
 
 .editor-post-slider {
+	background-color: #dee2e6;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	padding: 2.5rem 4rem;
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+
+	* {
+		color: inherit;
+	}
+	.slide__title,
+	.slide__excerpt,
+	.slide__link-container {
+		max-width: 1200px;
+		margin: 0.25rem 0;
+		position: relative;
+		z-index: 10;
+	}
+}
+
+.editor-slide__cover-image {
+	position: absolute;
+	height: 100%;
+	inset: 0;
+	background-color: lightblue;
 	background-image: url("./assets/icons/image-regular.svg");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-color: #dee2e6;
+	background-size: clamp(20rem, 30vw, 30rem);
+	z-index: 0;
 }
 
 .editor-post-slider-controls {
@@ -29,4 +56,66 @@
 
 .editor-post-slider-units-control {
 	width: 75px;
+}
+
+.slide__excerpt {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.slide__link {
+	min-width: fit-content;
+	width: 150px;
+	height: 75px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0.5rem 0;
+}
+
+.slide__link-label {
+	position: relative;
+	z-index: 10;
+}
+
+.slide__link-overlay {
+	height: 100%;
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
+.slide__scrollbar {
+	position: absolute;
+	height: 10px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.slide__scrollbar-inner {
+	position: absolute;
+	left: 0;
+	height: 100%;
+}
+
+.slide__navigation-button {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0 16px;
+	height: 35px;
+	width: 35px;
+	background: none;
+	border: none;
+	z-index: 100;
+
+	i {
+		height: 100%;
+		width: 100%;
+		display: block;
+		position: relative;
+		z-index: 10;
+	}
 }

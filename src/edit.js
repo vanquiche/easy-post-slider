@@ -238,7 +238,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 			<div
 				{...useBlockProps({
-					className: `post-slider editor-post-slider align-content--${attributes.content.alignment}`,
+					className: `editor-post-slider align-content--${attributes.content.alignment}`,
 					style: {
 						height: attributes.content.minHeight
 							? attributes.content.minHeight
@@ -326,6 +326,12 @@ export default function Edit({ attributes, setAttributes }) {
 						}}
 					></span>
 				</button>
+				<div
+					id="post-slider-cover-image"
+					className="editor-slide__cover-image"
+					style={{ opacity: attributes.coverImage.opacity + "%" }}
+					aria-hidden
+				></div>
 			</div>
 		</>
 	);
