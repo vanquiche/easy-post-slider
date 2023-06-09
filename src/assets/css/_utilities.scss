@@ -65,16 +65,15 @@
 // icons
 
 .caret-left {
-	background-image: url("./assets/icons/caret-left-solid.svg");
-	background-repeat: no-repeat;
-	background-position: center center;
-	fill: currentColor;
+	mask-image: url("./assets/icons/caret-left-solid.svg");
+	mask-repeat: no-repeat;
+	mask-position: center center;
 }
 
 .caret-right {
-	background-image: url("./assets/icons/caret-right-solid.svg");
-	background-repeat: no-repeat;
-	background-position: center center;
+	mask-image: url("./assets/icons/caret-right-solid.svg");
+	mask-repeat: no-repeat;
+	mask-position: center center;
 }
 
 // overlay classes

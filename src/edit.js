@@ -320,7 +320,11 @@ export default function Edit({ attributes, setAttributes }) {
 					className="slide__navigation-button left"
 					aria-label="previous slide"
 				>
-					<i className="caret-left" aria-hidden></i>
+					<i
+						className="caret-left"
+						style={{ backgroundColor: attributes.buttons.fontColor }}
+						aria-hidden
+					></i>
 					<span
 						className="button-overlay blur-bg"
 						style={{
@@ -334,7 +338,11 @@ export default function Edit({ attributes, setAttributes }) {
 					className="slide__navigation-button right"
 					aria-label="next slide"
 				>
-					<i className="caret-right" aria-hidden></i>
+					<i
+						className="caret-right"
+						style={{ backgroundColor: attributes.buttons.fontColor }}
+						aria-hidden
+					></i>
 					<span
 						className="button-overlay blur-bg"
 						style={{
