@@ -1,16 +1,16 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/parfait-designs-post-slider",
+	"name": "parfait-designs/post-slider",
 	"version": "0.1.0",
 	"title": "Parfait Designs Post Slider",
 	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"icon": "cover-image",
+	"description": "A custom dynamic block to query and display your posts in a slider component.",
 	"supports": {
 		"html": false
 	},
-	"textdomain": "parfait-designs-post-slider",
+	"textdomain": "parfait-designs",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

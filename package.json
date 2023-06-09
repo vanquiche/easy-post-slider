@@ -1,8 +1,8 @@
 {
 	"name": "parfait-designs-post-slider",
 	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
+	"description": "A custom dynamic block to query and display your posts in a slider component.",
+	"author": "Steve Vang",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
