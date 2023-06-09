@@ -1,50 +1,51 @@
-// align top (horizontal) classes
+// alignment  classes
+// align-items property aligns vertically (left to right)
 .align-content--top-left {
 	align-items: start;
-	justify-content: left;
-	text-align: left;
+	justify-content: start;
+	// text-align: left;
 }
 .align-content--top-center {
-	align-items: start;
-	justify-content: center;
-	text-align: center;
+	align-items: center;
+	justify-content: start;
+	// text-align: center;
 }
 .align-content--top-right {
-	align-items: start;
-	justify-content: right;
-	text-align: right;
+	align-items: end;
+	justify-content: start;
+	// text-align: right;
 }
-// align center (horizontal) classes
+// align middle  classes
 .align-content--center-left {
-	align-items: center;
-	justify-content: left;
-	text-align: left;
+	align-items: start;
+	justify-content: center;
+	// text-align: left;
 }
 .align-content--center-center {
 	align-items: center;
 	justify-content: center;
-	text-align: center;
+	// text-align: center;
 }
 .align-content--center-right {
-	align-items: center;
-	justify-content: right;
-	text-align: right;
-}
-// align bottom (horizontal) classes
-.align-content--bottom-left {
-	align-items: end;
-	justify-content: left;
-	text-align: left;
-}
-.align-content--bottom-center {
 	align-items: end;
 	justify-content: center;
-	text-align: center;
+	// text-align: right;
+}
+// // align bottom classes
+.align-content--bottom-left {
+	align-items: start;
+	justify-content: end;
+	// text-align: left;
+}
+.align-content--bottom-center {
+	align-items: center;
+	justify-content: end;
+	// text-align: center;
 }
 .align-content--bottom-right {
 	align-items: end;
-	justify-content: right;
-	text-align: right;
+	justify-content: end;
+	// text-align: right;
 }
 
 // filters classes
@@ -64,13 +65,13 @@
 // icons
 
 .caret-left {
-	background-image: url("../icons/caret-left-solid.svg");
+	background-image: url("./assets/icons/caret-left-solid.svg");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
 
 .caret-right {
-	background-image: url("../icons/caret-right-solid.svg");
+	background-image: url("./assets/icons/caret-right-solid.svg");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -78,8 +79,10 @@
 // overlay classes
 
 .button-overlay {
-	height: 100%;
-	width: 100%;
+	position: absolute;
+	z-index: 0;
+	inset: 0;
 	display: block;
+	height: 100%;
 	@extend .blur-bg;
 }

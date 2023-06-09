@@ -1,45 +1,54 @@
 .post-slider {
 	display: flex;
+	flex-direction: column;
 	position: relative;
 	padding: 2.5rem 4rem;
 	width: 100%;
 	box-sizing: border-box;
+	margin: 0;
 
 	* {
 		color: inherit;
+		padding: 0;
+		margin: 0;
 	}
-	.post-slider__title,
-	.post-slider__excerpt,
-	.post-slider__link-container {
+	.slide__title,
+	.slide__excerpt,
+	.slide__link-container {
 		max-width: 1200px;
+		margin: 0.25rem 0;
 	}
 }
 
-.post-slider-scrollbar {
+.slide__scrollbar {
 	position: absolute;
-	height: 15px;
+	height: 10px;
 	bottom: 0;
 	left: 0;
 	right: 0;
 }
 
-.post-slider__scrollbar-inner {
+.slide__scrollbar-inner {
 	position: absolute;
 	left: 0;
 	height: 100%;
 }
 
-.post-slider__navigation-button {
+.slide__navigation-button {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	margin: 0 16px;
 	height: 35px;
 	width: 35px;
+	background: none;
+	border: none;
 
 	i {
 		height: 100%;
 		width: 100%;
 		display: block;
+		position: relative;
+		z-index: 10;
 	}
 }
