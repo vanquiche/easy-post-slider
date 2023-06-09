@@ -220,29 +220,67 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 				</fieldset>
 			</InspectorControls>
-			<div {...useBlockProps()}>
+			<div
+				{...useBlockProps({
+					className: "post-slider editor-post-slider",
+					style: {
+						height: attributes.content.minHeight
+							? attributes.content.minHeight
+							: "",
+					},
+				})}
+			>
 				{attributes.content.showTitle && (
-					<h2>{attributes.content.showTitle}</h2>
+					<h2 className="post-slider__title">{attributes.content.showTitle}</h2>
 				)}
 				{attributes.content.showExcerpt && (
-					<p>{attributes.content.showExcerpt}</p>
+					<p className="post-slider__excerpt">
+						{attributes.content.showExcerpt}
+					</p>
 				)}
 				{attributes.content.showLink && (
-					<div>
-						<a>
-							<span>{attributes.content.showLink}</span>
-							<span id="link-overlay" aria-hidden></span>
+					<div className="post-slider__link-container">
+						<a className="post-slider__link">
+							<span className="post-slider__link-label">
+								{attributes.content.showLink}
+							</span>
+							<span
+								id="link-overlay"
+								className="post-slider__link-overlay"
+								aria-hidden
+							></span>
 						</a>
 					</div>
 				)}
 				{attributes.scrollbar.showScrollbar && (
-					<div id="post-slider-scrollbar"></div>
+					<div
+						id="post-slider-scrollbar"
+						className="post-slider__scrollbar"
+						aria-hidden
+					>
+						<div
+							className="post-slider__scrollbar-position"
+							style={{ backgroundColor: attributes.scrollbar.color }}
+						></div>
+						<div
+							className="post-slider__scrollbar-overlay"
+							style={{ backgroundColor: attributes.scrollbar.color }}
+						></div>
+					</div>
 				)}
-				<button id="post-slider-left" aria-label="previous slide">
+				<button
+					id="post-slider-left"
+					className="post-slider__navigation-button left"
+					aria-label="previous slide"
+				>
 					<i aria-hidden>left</i>
 					<span className="button-overlay"></span>
 				</button>
-				<button id="post-slider-right" aria-label="next slide">
+				<button
+					id="post-slider-right"
+					className="post-slider__navigation-button right"
+					aria-label="next slide"
+				>
 					<i aria-hidden>right</i>
 					<span className="button-overlay"></span>
 				</button>
