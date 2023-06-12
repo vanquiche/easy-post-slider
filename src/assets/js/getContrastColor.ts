@@ -1,4 +1,4 @@
-export default function getContrastColor(hexcolor) {
+export default function getContrastColor(hexcolor: string) {
 	if (!hexcolor) return "black";
 	var r = parseInt(hexcolor.substring(1, 3), 16);
 	var g = parseInt(hexcolor.substring(3, 5), 16);
