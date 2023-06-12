@@ -56,6 +56,7 @@
 	"textdomain": "parfait-designs",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
+	"script": "file:./assets/js/post-slider.ts",
 	"style": "file:./style-index.css",
 	"render": "file:./render.php"
 }
