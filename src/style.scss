@@ -19,13 +19,21 @@
 	list-style-type: none;
 	box-sizing: border-box;
 	width: 100%;
-	height: 300px;
-	min-height: fit-content;
+	height: 250px;
 	background-color: tomato;
+
+	// scroll behavior
 	overflow-x: scroll;
 	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
 
-	// overflow-y: hidden;
+	// remove scrollbar
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.post-slider::-webkit-scrollbar {
+	display: none;
 }
 
 .interface {
@@ -34,8 +42,8 @@
 }
 
 .navigation-button {
-	height: 50px;
-	width: 50px;
+	height: 35px;
+	width: 35px;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
@@ -64,12 +72,17 @@
 	background-color: lightblue;
 	display: flex;
 	flex-direction: column;
+	scroll-snap-align: center;
 }
 
 .slide-content {
 	padding: 2rem 3rem;
 	margin: 0 75px;
 	background-color: white;
+
+	&:focus {
+		outline: 2px solid red;
+	}
 }
 
 .slide-content__title,
@@ -97,4 +110,10 @@
 .slide-content__read-more-label {
 	z-index: 10;
 	position: relative;
+}
+
+.visuallyhidden {
+	pointer-events: none;
+	width: 0;
+	height: 0;
 }
