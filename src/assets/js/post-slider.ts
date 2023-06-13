@@ -22,11 +22,11 @@ export default class PostSlider {
 	// event listeners
 	wrapperHoverEvent() {
 		this.slideWrapper.addEventListener("mouseenter", () => {
-			this.handleWrapperHover();
+			this.removeHideClass(true);
 		});
 
 		this.slideWrapper.addEventListener("mouseleave", () => {
-			this.handleWrapperHover();
+			this.removeHideClass(false);
 		});
 	}
 	navigationButtonEvent() {
@@ -39,11 +39,14 @@ export default class PostSlider {
 		}
 	}
 
-	handleWrapperHover() {
+	removeHideClass(action: boolean) {
 		if (this.navigationButtons) {
 			this.navigationButtons.forEach((button) => {
-				button.classList.toggle("hide");
-				console.log("hide");
+				if (action) {
+					button.classList.remove("hide");
+				} else {
+					button.classList.add("hide");
+				}
 			});
 		}
 	}
