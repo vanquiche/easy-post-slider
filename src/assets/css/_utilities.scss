@@ -95,3 +95,7 @@
 	height: 100%;
 	@extend .blur-bg;
 }
+
+.hide {
+	opacity: 0;
+}

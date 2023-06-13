@@ -8,20 +8,30 @@ export default class PostSlider {
 
 	initSlider() {
 		this.navigationButtonEvent();
+		this.wrapperHoverEvent();
 		this.setSliderHeight();
 		this.setIntersectionObservers();
 	}
 
 	// event listeners
-	navigationButtonEvent() {
-		const buttons = this.slideWrapper.querySelectorAll(
-			'[data-post-slider="navigation-button"]'
-		);
-		buttons.forEach((button) => {
-			button.addEventListener("click", () => {
-				this.handleNavigationButtonClick(button);
-			});
+	wrapperHoverEvent() {
+		this.slideWrapper.addEventListener("mouseenter", () => {
+			this.handleWrapperHover();
 		});
+
+		this.slideWrapper.addEventListener("mouseleave", () => {
+			this.handleWrapperHover();
+		});
+	}
+	navigationButtonEvent() {
+
+	handleWrapperHover() {
+		if (this.navigationButtons) {
+			this.navigationButtons.forEach((button) => {
+				button.classList.toggle("hide");
+				console.log("hide");
+			});
+		}
 	}
 
 	handleNavigationButtonClick(button: Element) {

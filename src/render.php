@@ -31,13 +31,13 @@
 	if ($query->have_posts()) : ?>
 		<?php if ($query->post_count > 1) : ?>
 			<div class='interface top-50 left m-horizontal--16'>
-				<button class='navigation-button absolute-left' data-post-slider='navigation-button' data-post-slider-action='previous' aria-label='navigate previous slide'>
+				<button class='navigation-button absolute-left hide' data-post-slider='navigation-button' data-post-slider-action='previous' aria-label='navigate previous slide'>
 					<i class='caret caret-left' style='background-color: <?php echo $attributes["buttons"]["fontColor"]; ?>;' aria-hidden='true'></i>
 					<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>;' aria-hidden></span>
 				</button>
 			</div>
 			<div class='interface top-50 right m-horizontal--16'>
-				<button class='navigation-button absolute-right' data-post-slider='navigation-button' data-post-slider-action='next' aria-label='navigate next slide'>
+				<button class='navigation-button absolute-right hide' data-post-slider='navigation-button' data-post-slider-action='next' aria-label='navigate next slide'>
 					<i class='caret caret-right' style='background-color: <?php echo $attributes["buttons"]["fontColor"]; ?>;' aria-hidden='true'></i>
 					<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>;' aria-hidden='true'></span>
 				</button>
