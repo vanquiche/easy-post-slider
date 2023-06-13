@@ -33,13 +33,13 @@
 			<div class='interface top-50 left m-horizontal--16'>
 				<button class='navigation-button absolute-left hide' data-post-slider='navigation-button' data-post-slider-action='previous' aria-label='navigate previous slide'>
 					<i class='caret caret-left' style='background-color: <?php echo $attributes["buttons"]["fontColor"]; ?>;' aria-hidden='true'></i>
-					<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>;' aria-hidden></span>
+					<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>; opacity: <?php echo $attributes["buttons"]["opacity"] ?>%;' aria-hidden></span>
 				</button>
 			</div>
 			<div class='interface top-50 right m-horizontal--16'>
 				<button class='navigation-button absolute-right hide' data-post-slider='navigation-button' data-post-slider-action='next' aria-label='navigate next slide'>
 					<i class='caret caret-right' style='background-color: <?php echo $attributes["buttons"]["fontColor"]; ?>;' aria-hidden='true'></i>
-					<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>;' aria-hidden='true'></span>
+					<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>;opacity: <?php echo $attributes["buttons"]["opacity"] ?>%;' aria-hidden='true'></span>
 				</button>
 			</div>
 		<?php endif ?>
@@ -70,7 +70,7 @@
 								<span class='slide-content__read-more-label' style='color: <?php echo $attributes["buttons"]["fontColor"] ?>'>
 									Read Now
 								</span>
-								<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>;' aria-hidden='true'></span>
+								<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>; opacity: <?php echo $attributes["buttons"]["opacity"] ?>%;' aria-hidden='true'></span>
 							</a>
 						</div>
 					</article>
