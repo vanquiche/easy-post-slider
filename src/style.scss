@@ -34,8 +34,9 @@
 		display: none;
 	}
 
-.post-slider::-webkit-scrollbar {
-	display: none;
+	@media screen and (max-width: 675px) {
+		height: 100vh;
+	}
 }
 
 .interface {
@@ -76,16 +77,30 @@
 	display: flex;
 	flex-direction: column;
 	scroll-snap-align: center;
+
+	.wp-post-image {
+		position: absolute;
+		inset: 0;
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+		z-index: 0;
+	}
 }
 
 .slide-content {
 	padding: 2rem 3rem;
 	margin: 0 75px;
 	background-color: white;
+	z-index: 90;
 
 	&:focus {
 		outline: 2px solid red;
 	}
+}
+
+.cover-image {
+	background-position: center center;
 }
 
 .slide-content__title,

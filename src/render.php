@@ -56,7 +56,8 @@
 			while ($query->have_posts()) :
 				$query->the_post();
 			?>
-				<li class='slide <?php echo 'align-content--' . $attributes["content"]["alignment"] ?>' style='left: <?php echo (($query->current_post) * 100) . "%" ?>;'>
+				<!-- slide -->
+				<li class='slide cover-image <?php echo 'align-content--' . $attributes["content"]["alignment"] ?>' style='left: <?php echo (($query->current_post) * 100) . "%" ?>;'>
 					<article class='slide-content' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
 						<h2 class='slide-content__title'>
 							<?php echo the_title() ?>
@@ -73,11 +74,13 @@
 							</a>
 						</div>
 					</article>
+					<?php echo the_post_thumbnail() ?>
 				</li>
 			<?php
 			endwhile ?>
 		</ul>
 	<?php
-	endif
+	endif;
+	wp_reset_postdata();
 	?>
 </section>
