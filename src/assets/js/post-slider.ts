@@ -1,9 +1,15 @@
 export default class PostSlider {
 	slideWrapper: Element;
 	slider: HTMLUListElement | null;
+	scrollbarInner: HTMLDivElement | null;
+	navigationButtons: NodeListOf<Element> | null;
 	constructor(slideWrapper: Element) {
 		this.slideWrapper = slideWrapper;
 		this.slider = slideWrapper.querySelector(".post-slider");
+		this.scrollbarInner = slideWrapper.querySelector(".scrollbar__inner");
+		this.navigationButtons = slideWrapper.querySelectorAll(
+			'[data-post-slider="navigation-button"]'
+		);
 	}
 
 	initSlider() {
@@ -24,6 +30,14 @@ export default class PostSlider {
 		});
 	}
 	navigationButtonEvent() {
+		if (this.navigationButtons) {
+			this.navigationButtons.forEach((button) => {
+				button.addEventListener("click", () => {
+					this.handleNavigationButtonClick(button);
+				});
+			});
+		}
+	}
 
 	handleWrapperHover() {
 		if (this.navigationButtons) {
