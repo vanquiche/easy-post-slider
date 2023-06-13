@@ -45,6 +45,11 @@
 		<?php endif ?>
 		<!-- accessible live region to indicate slide number -->
 		<div data-post-slider='live-region' class='visuallyhidden' aria-live="polite" aria-atomic="true"></div>
+		<!-- scrollbar -->
+		<div data-post-slider='scrollbar' class='scrollbar' aria-hidden='true'>
+			<div data-post-slider='scrollbar-inner' class='scrollbar__inner' style='background-color: <?php echo $attributes["scrollbar"]["color"] ?>;'></div>
+			<div data-post-slider='scrollbar-overlay' class='scrollbar__overlay' style='background-color: <?php echo $attributes["scrollbar"]["color"] ?>;'></div>
+		</div>
 		<!-- slider component -->
 		<ul class='post-slider' style='min-height: <?php echo $attributes["content"]["minHeight"] ?>' aria-label='featured posts'>
 			<?php

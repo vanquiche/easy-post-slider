@@ -30,7 +30,9 @@
 	// remove scrollbar
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-}
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
 .post-slider::-webkit-scrollbar {
 	display: none;
@@ -116,4 +118,29 @@
 	pointer-events: none;
 	width: 0;
 	height: 0;
+}
+
+.scrollbar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 10px;
+	width: 100%;
+	z-index: 100;
+	backdrop-filter: blur(4px);
+}
+
+.scrollbar__inner {
+	transform-origin: left;
+	height: 100%;
+	transition: width 175ms ease;
+}
+
+.scrollbar__overlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	opacity: 0.5;
+	inset: 0;
 }

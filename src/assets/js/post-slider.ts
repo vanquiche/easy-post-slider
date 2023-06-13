@@ -67,8 +67,11 @@ export default class PostSlider {
 					const liveRegion = this.slideWrapper.querySelector(
 						'[data-post-slider="live-region"]'
 					);
+					const slideNumber = entry.target.getAttribute(
+						"data-post-slider-number"
+					);
 					if (entry.isIntersecting) {
-						console.log("intersecting");
+						if (slideNumber) this.setScrollbarPosition(parseInt(slideNumber));
 						link?.setAttribute("tabindex", "0");
 						if (liveRegion && this.slider)
 							liveRegion.textContent = `Slide ${entry.target.getAttribute(
@@ -83,6 +86,15 @@ export default class PostSlider {
 			const observer = new IntersectionObserver(callback, options);
 
 			slides.forEach((slide) => observer.observe(slide));
+		}
+	}
+
+	setScrollbarPosition(slideNumber: number) {
+		if (slideNumber && this.slider && this.scrollbarInner) {
+			const scrollbarInnerWidth = Math.round(
+				(slideNumber / this.slider.children.length) * 100
+			);
+			this.scrollbarInner.style.width = scrollbarInnerWidth + "%";
 		}
 	}
 }
