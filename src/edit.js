@@ -103,6 +103,35 @@ export default function Edit({ attributes, setAttributes }) {
 							}
 							help="Toggle post link visibility"
 						/>
+						<CheckboxControl
+							label="Enable Content Background"
+							checked={attributes.content.background}
+							onChange={(value) =>
+								setAttributes({
+									content: { ...attributes.content, background: value },
+								})
+							}
+							help="Disabling this feature may affect the contrast and readability"
+						/>
+						<label for="content-background-color-control">
+							Content Background Color
+						</label>
+						<ColorPalette
+							style={{ marginTop: "12px" }}
+							id="content-background-color-control"
+							colors={bgColors}
+							value={attributes.content.bgColor}
+							onChange={(value) =>
+								setAttributes({
+									content: {
+										...attributes.content,
+										bgColor: value,
+										fontColor: getContrastColor(value),
+									},
+								})
+							}
+						/>
+
 						<AlignmentMatrixControl
 							value={attributes.content.alignment.replace("-", " ")}
 							onChange={(value) =>

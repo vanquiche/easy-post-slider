@@ -15,7 +15,10 @@
 				"showTitle": true,
 				"showExcerpt": true,
 				"showLink": true,
-				"minHeight": null
+				"minHeight": null,
+				"background": true,
+				"bgColor": "#e7ecef",
+				"fontColor": "black"
 			}
 		},
 		"buttons": {

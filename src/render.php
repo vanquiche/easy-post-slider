@@ -7,6 +7,11 @@
 <section <?php echo get_block_wrapper_attributes(); ?>>
 	<!-- <?php echo print_r($attributes) ?> -->
 	<?php
+	function hexToRgb($hex, $opacity)
+	{
+		list($r, $g, $b) = sscanf($hex, '#%02x%02x%02x');
+		return "rgba($r, $g, $b, $opacity)";
+	}
 	$args = array(
 		'post_type' => 'post',
 		'orderby' => 'date',
@@ -57,8 +62,8 @@
 				$query->the_post();
 			?>
 				<!-- slide -->
-				<li class='slide cover-image <?php echo 'align-content--' . $attributes["content"]["alignment"] ?>' style='left: <?php echo (($query->current_post) * 100) . "%" ?>;'>
-					<article class='slide-content' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
+				<li class='slide cover-image <?php echo 'align-content--' . $attributes["content"]["alignment"] ?>' style='left: <?php echo (($query->current_post) * 100) . "%" ?>; background-color: <?php echo $attributes["coverImage"]["bgColor"] ?>'>
+					<article class='slide-content <?php if ($attributes["content"]["background"]) : ?>drop-shadow<?php endif ?>' style='<?php if ($attributes["content"]["background"]) : ?>background-color: <?php echo hexToRgb($attributes['content']['bgColor'], 0.5); ?>; color: <?php echo $attributes['content']['fontColor'] ?>;<?php endif ?>' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
 						<h2 class='slide-content__title'>
 							<?php echo the_title() ?>
 						</h2>
