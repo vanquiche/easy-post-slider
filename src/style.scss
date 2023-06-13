@@ -42,15 +42,25 @@
 .interface {
 	position: absolute;
 	z-index: 100;
+	backdrop-filter: blur(4px);
+
+	@media screen and (max-width: 675px) {
+		margin: 0;
+	}
 }
 
 .navigation-button {
 	height: 25px;
 	width: 35px;
+	padding: 0;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
 	transition: opacity 200ms ease;
+
+	@media screen and (max-width: 675px) {
+		opacity: 1;
+	}
 }
 
 .overlay {
@@ -91,11 +101,22 @@
 .slide-content {
 	padding: 2rem 3rem;
 	margin: 0 75px;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.5);
 	z-index: 90;
+	backdrop-filter: blur(4px);
+
+	@extend .drop-shadow;
 
 	&:focus {
 		outline: 2px solid red;
+	}
+
+	@media screen and (max-width: 675px) {
+		width: 80%;
+		min-width: 300px;
+		max-width: 550px;
+		// width: 300px;
+		padding: 1rem;
 	}
 }
 
@@ -117,6 +138,7 @@
 
 .slide-content__read-more {
 	margin: 1rem 0;
+	backdrop-filter: blur(4px);
 }
 
 .slide-content__read-more-link {
