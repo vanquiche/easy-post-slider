@@ -1,94 +1,88 @@
-console.log("hello post slider");
+export default class PostSlider {
+	slideWrapper: Element;
+	slider: HTMLUListElement | null;
+	constructor(slideWrapper: Element) {
+		this.slideWrapper = slideWrapper;
+		this.slider = slideWrapper.querySelector(".post-slider");
+	}
 
-document.addEventListener("DOMContentLoaded", () => {
-	const $postSliderContainer = document.querySelector(
-		".wp-block-parfait-designs-post-slider"
-	);
+	initSlider() {
+		this.navigationButtonEvent();
+		this.setSliderHeight();
+		this.setIntersectionObservers();
+	}
 
-	function setSliderHeight() {
+	// event listeners
+	navigationButtonEvent() {
+		const buttons = this.slideWrapper.querySelectorAll(
+			'[data-post-slider="navigation-button"]'
+		);
+		buttons.forEach((button) => {
+			button.addEventListener("click", () => {
+				this.handleNavigationButtonClick(button);
+			});
+		});
+	}
+
+	handleNavigationButtonClick(button: Element) {
+		const action = button.getAttribute("data-post-slider-action");
+		if (this.slider) {
+			const scrollIncrement =
+				this.slider.scrollWidth / this.slider.children.length;
+			const currentScrollPosition = this.slider.scrollLeft;
+			if (action === "next") {
+				const scrollLeftMax = this.slider.scrollWidth - this.slider.clientWidth;
+				if (this.slider.scrollLeft >= scrollLeftMax) return;
+				this.slider.scrollTo(currentScrollPosition + scrollIncrement, 0);
+			} else {
+				if (this.slider.scrollLeft <= 0) return;
+				this.slider.scrollTo(currentScrollPosition - scrollIncrement, 0);
+			}
+		}
+	}
+
+	setSliderHeight() {
 		// set height of slider to match height of largest slide
-		if ($postSliderContainer) {
-			const slider = $postSliderContainer.querySelector("ul");
-			if (slider) {
-				const slides = Array.from(
-					slider.querySelectorAll(".slide-content")
-				).map((s) => s.clientHeight);
-				const largetSlideHeight = Math.max(...slides);
-				slider.style.height = largetSlideHeight + "px";
-			}
+		if (this.slider) {
+			const slides = Array.from(
+				this.slider.querySelectorAll(".slide-content")
+			).map((s) => s.clientHeight);
+			const largetSlideHeight = Math.max(...slides);
+			this.slider.style.height = largetSlideHeight + "px";
 		}
 	}
 
-	function setIntersectionObservers() {
-		if ($postSliderContainer) {
-			const slider = $postSliderContainer.querySelector("ul");
-			if (slider) {
-				const slides = slider.querySelectorAll(".slide-content");
-				const options = {
-					root: $postSliderContainer,
-					threshold: 0.25,
-				};
+	setIntersectionObservers() {
+		if (this.slider) {
+			const slides = this.slider.querySelectorAll(".slide-content");
+			const options = {
+				root: this.slideWrapper,
+				threshold: 0.25,
+			};
 
-				const callback = (entries: IntersectionObserverEntry[]) => {
-					entries.forEach((entry) => {
-						// console.log("intersecting");
-						const link = entry.target.querySelector("a");
-						const liveRegion = $postSliderContainer.querySelector(
-							'[data-post-slider="live-region"]'
-						);
-						if (entry.isIntersecting) {
-							console.log("intersecting");
-							link?.setAttribute("tabindex", "0");
-							// entry.target.focus();
-							if (liveRegion)
-								liveRegion.textContent = `Slide ${entry.target.getAttribute(
-									"data-post-slider-number"
-								)} of ${slider.children.length}`;
-						} else {
-							link?.setAttribute("tabindex", "-1");
-						}
-					});
-				};
-
-				const observer = new IntersectionObserver(callback, options);
-
-				slides.forEach((slide) => observer.observe(slide));
-			}
-		}
-	}
-
-	function setNavigationButtonInteraction() {
-		if ($postSliderContainer) {
-			const navigationButtons = $postSliderContainer.querySelectorAll(
-				'[data-post-slider="navigation-button"]'
-			);
-
-			if (navigationButtons) {
-				navigationButtons.forEach((btn) => {
-					btn.addEventListener("click", function () {
-						handleNavigationButtonClick.call(btn, null);
-					});
+			const callback = (entries: IntersectionObserverEntry[]) => {
+				entries.forEach((entry) => {
+					// console.log("intersecting");
+					const link = entry.target.querySelector("a");
+					const liveRegion = this.slideWrapper.querySelector(
+						'[data-post-slider="live-region"]'
+					);
+					if (entry.isIntersecting) {
+						console.log("intersecting");
+						link?.setAttribute("tabindex", "0");
+						if (liveRegion && this.slider)
+							liveRegion.textContent = `Slide ${entry.target.getAttribute(
+								"data-post-slider-number"
+							)} of ${this.slider.children.length}`;
+					} else {
+						link?.setAttribute("tabindex", "-1");
+					}
 				});
-			}
+			};
+
+			const observer = new IntersectionObserver(callback, options);
+
+			slides.forEach((slide) => observer.observe(slide));
 		}
 	}
-
-	function handleNavigationButtonClick() {
-		const slider = this.parentNode.parentNode.querySelector(".post-slider");
-		const action = this.getAttribute("data-post-slider-action");
-		const scrollIncrement = slider.scrollWidth / slider.children.length;
-		const currentScrollPosition = slider.scrollLeft;
-		if (action === "next") {
-			if (slider.scrollLeft >= slider.scrollLeftMax) return;
-			slider.scrollTo(currentScrollPosition + scrollIncrement, 0);
-		} else {
-			if (slider.scrollLeft <= 0) return;
-			slider.scrollTo(currentScrollPosition - scrollIncrement, 0);
-		}
-	}
-
-	console.log($postSliderContainer);
-	setSliderHeight();
-	setNavigationButtonInteraction();
-	setIntersectionObservers();
-});
+}
