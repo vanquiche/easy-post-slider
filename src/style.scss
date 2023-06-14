@@ -87,25 +87,12 @@
 	display: flex;
 	flex-direction: column;
 	scroll-snap-align: center;
-
-	.wp-post-image {
-		position: absolute;
-		inset: 0;
-		object-fit: cover;
-		height: 100%;
-		width: 100%;
-		z-index: 0;
-	}
 }
 
 .slide-content {
 	padding: 2rem 3rem;
 	margin: 0 75px;
-	background-color: rgba(255, 255, 255, 0.5);
 	z-index: 90;
-	backdrop-filter: blur(4px);
-
-	@extend .drop-shadow;
 
 	&:focus {
 		outline: 2px solid red;
@@ -138,18 +125,27 @@
 
 .slide-content__read-more {
 	margin: 1rem 0;
-	backdrop-filter: blur(4px);
 }
 
 .slide-content__read-more-link {
 	display: inline-block;
 	position: relative;
 	padding: 1rem;
+	@extend .blur-bg;
 }
 
 .slide-content__read-more-label {
 	z-index: 10;
 	position: relative;
+}
+
+.slide-content__image {
+	position: absolute;
+	inset: 0;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
 }
 
 .visuallyhidden {

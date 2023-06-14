@@ -79,7 +79,7 @@
 							</a>
 						</div>
 					</article>
-					<?php echo the_post_thumbnail() ?>
+					<?php echo the_post_thumbnail('full', array('class' => "slide-content__image opacity--{$attributes['coverImage']['opacity']}", 'alt' => '')) ?>
 				</li>
 			<?php
 			endwhile ?>
