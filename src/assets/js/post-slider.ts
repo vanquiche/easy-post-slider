@@ -17,6 +17,7 @@ export default class PostSlider {
 		this.wrapperHoverEvent();
 		this.setSliderHeight();
 		this.setIntersectionObservers();
+		this.blurryLoadImagesInit();
 	}
 
 	// event listeners
@@ -156,5 +157,21 @@ export default class PostSlider {
 				previousButton.ariaDisabled = "false";
 			}
 		}
+	}
+
+	blurryLoadImagesInit() {
+		const images = this.slideWrapper.querySelectorAll(
+			".slide-content__image-full"
+		) as NodeListOf<HTMLImageElement>;
+		images.forEach((image) => {
+			// when images have loaded then fade in image
+			if (image.complete) {
+				image.style.opacity = "1";
+			} else {
+				image.addEventListener("load", function () {
+					image.style.opacity = "1";
+				});
+			}
+		});
 	}
 }

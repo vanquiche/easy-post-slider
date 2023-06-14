@@ -152,10 +152,23 @@
 	position: relative;
 }
 
-.slide-content__image {
+.slide-content__image-full {
 	position: absolute;
 	inset: 0;
 	object-fit: cover;
+	object-position: center center;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	opacity: 0;
+	transition: opacity 250ms ease;
+}
+
+.slide-content__image-thumbnail {
+	position: absolute;
+	inset: 0;
+	object-fit: cover;
+	object-position: center center;
 	height: 100%;
 	width: 100%;
 	z-index: 0;

@@ -82,7 +82,8 @@
 							</div>
 						<?php endif ?>
 					</article>
-					<?php echo the_post_thumbnail('full', array('class' => "slide-content__image opacity--{$attributes['coverImage']['opacity']}", 'alt' => '')) ?>
+					<?php echo the_post_thumbnail('full', array('class' => "slide-content__image-full opacity--{$attributes['coverImage']['opacity']}", 'alt' => '')) ?>
+					<?php echo the_post_thumbnail('thumbnail', array('class' => "slide-content__image-thumbnail opacity--{$attributes['coverImage']['opacity']}", 'alt' => '')) ?>
 				</li>
 			<?php
 			endwhile ?>
