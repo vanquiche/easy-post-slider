@@ -2,7 +2,7 @@ export default class PostSlider {
 	slideWrapper: Element;
 	slider: HTMLUListElement | null;
 	scrollbarInner: HTMLDivElement | null;
-	navigationButtons: NodeListOf<Element> | null;
+	navigationButtons: NodeListOf<HTMLButtonElement> | null;
 	constructor(slideWrapper: Element) {
 		this.slideWrapper = slideWrapper;
 		this.slider = slideWrapper.querySelector(".post-slider");
@@ -98,13 +98,21 @@ export default class PostSlider {
 						"data-post-slider-number"
 					);
 					if (entry.isIntersecting) {
-						if (slideNumber) this.setScrollbarPosition(parseInt(slideNumber));
+						// move scrollbar length to appropriate location
+						// check whether to disable navigation button or not
+						if (slideNumber) {
+							this.setScrollbarPosition(parseInt(slideNumber));
+							this.disableNavigationButton(parseInt(slideNumber));
+						}
+						// enable focus on 'read more' link on current slide
 						link?.setAttribute("tabindex", "0");
+						// update accessible live region to announce current slide
 						if (liveRegion && this.slider)
 							liveRegion.textContent = `Slide ${entry.target.getAttribute(
 								"data-post-slider-number"
 							)} of ${this.slider.children.length}`;
 					} else {
+						// disable focus on 'read more' link on slides out of view
 						link?.setAttribute("tabindex", "-1");
 					}
 				});
@@ -122,6 +130,31 @@ export default class PostSlider {
 				(slideNumber / this.slider.children.length) * 100
 			);
 			this.scrollbarInner.style.width = scrollbarInnerWidth + "%";
+		}
+	}
+
+	disableNavigationButton(currentSlide: number) {
+		if (this.slider) {
+			const previousButton = this.slideWrapper.querySelector(
+				'[data-post-slider-action="previous"]'
+			) as HTMLButtonElement;
+			const nextButton = this.slideWrapper.querySelector(
+				'[data-post-slider-action="next"]'
+			) as HTMLButtonElement;
+			// is at the last slide
+			if (currentSlide === this.slider.children.length) {
+				nextButton.disabled = true;
+				nextButton.ariaDisabled = "true";
+				// is at the beginning slide
+			} else if (currentSlide === 1) {
+				previousButton.disabled = true;
+				previousButton.ariaDisabled = "true";
+			} else {
+				nextButton.disabled = false;
+				nextButton.ariaDisabled = "false";
+				previousButton.disabled = false;
+				previousButton.ariaDisabled = "false";
+			}
 		}
 	}
 }

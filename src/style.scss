@@ -50,13 +50,22 @@
 }
 
 .navigation-button {
-	height: 25px;
+	height: 35px;
 	width: 35px;
 	padding: 0;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
 	transition: opacity 200ms ease;
+
+	&:disabled {
+		cursor: default;
+		opacity: 0;
+	}
+
+	&:focus {
+		opacity: 1;
+	}
 
 	@media screen and (max-width: 675px) {
 		opacity: 1;
