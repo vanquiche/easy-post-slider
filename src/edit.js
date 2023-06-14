@@ -105,7 +105,7 @@ export default function Edit({ attributes, setAttributes }) {
 							help="Toggle post link visibility"
 						/>
 						<CheckboxControl
-							label="Enable Content Background"
+							label="Enable Content Backdrop"
 							checked={attributes.content.background}
 							onChange={(value) =>
 								setAttributes({
@@ -115,7 +115,7 @@ export default function Edit({ attributes, setAttributes }) {
 							help="Disabling this feature may affect the contrast and readability"
 						/>
 						<label for="content-background-color-control">
-							Content Background Color
+							Content Backdrop Color
 						</label>
 						<ColorPalette
 							style={{ marginTop: "12px" }}
