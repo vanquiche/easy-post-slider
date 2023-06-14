@@ -18,6 +18,7 @@
 				"minHeight": null,
 				"background": true,
 				"bgColor": "#e7ecef",
+				"transparentBg": false,
 				"fontColor": "black"
 			}
 		},
@@ -25,8 +26,7 @@
 			"type": "object",
 			"default": {
 				"fontColor": "black",
-				"bgColor": "#f6fff8",
-				"opacity": 100
+				"bgColor": "#f6fff8"
 			}
 		},
 		"scrollbar": {
@@ -39,8 +39,8 @@
 		"coverImage": {
 			"type": "object",
 			"default": {
-				"opacity": 100,
-				"bgColor": "#f6fff8",
+				"opacity": 0,
+				"overlayColor": "#f6fff8",
 				"fontColor": "black"
 			}
 		},

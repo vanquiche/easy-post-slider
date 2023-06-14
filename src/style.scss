@@ -152,6 +152,14 @@
 	position: relative;
 }
 
+.slide-content__image-overlay {
+	position: absolute;
+	inset: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 20;
+}
+
 .slide-content__image-full {
 	position: absolute;
 	inset: 0;

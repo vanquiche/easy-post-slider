@@ -105,7 +105,7 @@ export default function Edit({ attributes, setAttributes }) {
 							help="Toggle post link visibility"
 						/>
 						<CheckboxControl
-							label="Enable Content Backdrop"
+							label="Content Background"
 							checked={attributes.content.background}
 							onChange={(value) =>
 								setAttributes({
@@ -113,6 +113,15 @@ export default function Edit({ attributes, setAttributes }) {
 								})
 							}
 							help="Disabling this feature may affect the contrast and readability"
+						/>
+						<CheckboxControl
+							label="Transparent background"
+							checked={attributes.content.transparentBg}
+							onChange={(value) =>
+								setAttributes({
+									content: { ...attributes.content, transparentBg: value },
+								})
+							}
 						/>
 						<label for="content-background-color-control">
 							Content Backdrop Color
@@ -173,7 +182,7 @@ export default function Edit({ attributes, setAttributes }) {
 								})
 							}
 						/>
-						<RangeControl
+						{/* <RangeControl
 							label="button opacity"
 							value={attributes.buttons.opacity}
 							onChange={(value) =>
@@ -184,7 +193,7 @@ export default function Edit({ attributes, setAttributes }) {
 							min={0}
 							max={100}
 							step={10}
-						/>
+						/> */}
 						<label for="scrollbar-color-control">Scrollbar Color</label>
 						<ColorPalette
 							style={{ marginTop: "12px" }}
@@ -208,7 +217,7 @@ export default function Edit({ attributes, setAttributes }) {
 							help="Toggle scrollbar visibility"
 						/>
 						<RangeControl
-							label="cover image opacity"
+							label="cover image overlay"
 							value={attributes.coverImage.opacity}
 							onChange={(value) =>
 								setAttributes({
@@ -219,20 +228,20 @@ export default function Edit({ attributes, setAttributes }) {
 								})
 							}
 							min={0}
-							max={100}
-							step={10}
+							max={10}
+							step={1}
 						/>
-						<label for="background-color-control">Background Color</label>
+						<label for="overlay-color-control">Overlay Color</label>
 						<ColorPalette
 							style={{ marginTop: "12px" }}
-							id="background-color-control"
+							id="overlay-color-control"
 							colors={bgColors}
-							value={attributes.coverImage.bgColor}
+							value={attributes.coverImage.overlayColor}
 							onChange={(value) =>
 								setAttributes({
 									coverImage: {
 										...attributes.coverImage,
-										bgColor: value,
+										overlayColor: value,
 										fontColor: getContrastColor(value),
 									},
 								})
@@ -282,7 +291,7 @@ export default function Edit({ attributes, setAttributes }) {
 									},
 								})
 							}
-							help="Seperate tags by coma"
+							help="Separate tags with comas"
 						/>
 					</fieldset>
 				</div>
@@ -294,7 +303,6 @@ export default function Edit({ attributes, setAttributes }) {
 						height: attributes.content.minHeight
 							? attributes.content.minHeight
 							: "",
-						backgroundColor: attributes.coverImage.bgColor,
 					},
 				})}
 			>
@@ -304,7 +312,10 @@ export default function Edit({ attributes, setAttributes }) {
 					}`}
 					style={{
 						backgroundColor: attributes.content.background
-							? getHexToRgb(attributes.content.bgColor, 0.5)
+							? getHexToRgb(
+									attributes.content.bgColor,
+									attributes.content.transparentBg ? 0.5 : 1
+							  )
 							: null,
 						color: attributes.content.background
 							? attributes.content.fontColor
@@ -381,7 +392,6 @@ export default function Edit({ attributes, setAttributes }) {
 						className="button-overlay blur-bg"
 						style={{
 							backgroundColor: attributes.buttons.bgColor,
-							opacity: attributes.buttons.opacity + "%",
 						}}
 					></span>
 				</button>
@@ -404,10 +414,19 @@ export default function Edit({ attributes, setAttributes }) {
 					></span>
 				</button>
 				<div
+					className="editor-slide__cover-image__overlay"
+					style={{
+						backgroundColor: getHexToRgb(
+							attributes.coverImage.overlayColor,
+							attributes.coverImage.opacity * 0.1
+						),
+					}}
+					aria-hidden="true"
+				></div>
+				<div
 					id="post-slider-cover-image"
 					className="editor-slide__cover-image"
-					style={{ opacity: attributes.coverImage.opacity + "%" }}
-					aria-hidden
+					aria-hidden="true"
 				></div>
 			</div>
 		</>
