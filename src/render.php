@@ -63,21 +63,27 @@
 			?>
 				<!-- slide -->
 				<li class='slide cover-image <?php echo 'align-content--' . $attributes["content"]["alignment"] ?>' style='left: <?php echo (($query->current_post) * 100) . "%" ?>; background-color: <?php echo $attributes["coverImage"]["bgColor"] ?>'>
-					<article class='slide-content <?php if ($attributes["content"]["background"]) : ?>drop-shadow<?php endif ?>' style='<?php if ($attributes["content"]["background"]) : ?>background-color: <?php echo hexToRgb($attributes['content']['bgColor'], 0.5); ?>; color: <?php echo $attributes['content']['fontColor'] ?>;<?php endif ?>' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
-						<h2 class='slide-content__title'>
-							<?php echo the_title() ?>
-						</h2>
-						<p class='slide-content__excerpt'>
-							<?php echo wp_strip_all_tags(get_the_excerpt(), true) ?>
-						</p>
-						<div class='slide-content__read-more'>
-							<a class='slide-content__read-more-link' href="<?php echo the_permalink() ?>" tabindex="0">
-								<span class='slide-content__read-more-label' style='color: <?php echo $attributes["buttons"]["fontColor"] ?>'>
-									Read Now
-								</span>
-								<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>; opacity: <?php echo $attributes["buttons"]["opacity"] ?>%;' aria-hidden='true'></span>
-							</a>
-						</div>
+					<article class='slide-content <?php if ($attributes["content"]["background"]) : ?>drop-shadow blur-bg<?php endif ?>' style='<?php if ($attributes["content"]["background"]) : ?>background-color: <?php echo hexToRgb($attributes['content']['bgColor'], 0.5); ?>; color: <?php echo $attributes['content']['fontColor'] ?>;<?php endif ?>' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
+						<?php if ($attributes['content']['showTitle']) : ?>
+							<h2 class='slide-content__title'>
+								<?php echo the_title() ?>
+							</h2>
+						<?php endif ?>
+						<?php if ($attributes['content']['showExcerpt']) : ?>
+							<p class='slide-content__excerpt'>
+								<?php echo wp_strip_all_tags(get_the_excerpt(), true) ?>
+							</p>
+						<?php endif ?>
+						<?php if ($attributes['content']['showLink']) : ?>
+							<div class='slide-content__read-more'>
+								<a class='slide-content__read-more-link' href="<?php echo the_permalink() ?>" tabindex="0">
+									<span class='slide-content__read-more-label' style='color: <?php echo $attributes["buttons"]["fontColor"] ?>'>
+										Read Now
+									</span>
+									<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>; opacity: <?php echo $attributes["buttons"]["opacity"] ?>%;' aria-hidden='true'></span>
+								</a>
+							</div>
+						<?php endif ?>
 					</article>
 					<?php echo the_post_thumbnail('full', array('class' => "slide-content__image opacity--{$attributes['coverImage']['opacity']}", 'alt' => '')) ?>
 				</li>
