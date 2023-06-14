@@ -7,11 +7,8 @@
 <section <?php echo get_block_wrapper_attributes(); ?>>
 	<!-- <?php echo print_r($attributes) ?> -->
 	<?php
-	function hexToRgb($hex, $opacity)
-	{
-		list($r, $g, $b) = sscanf($hex, '#%02x%02x%02x');
-		return "rgba($r, $g, $b, $opacity)";
-	}
+	include_once 'assets/php/hex_to_rgb.php';
+
 	$args = array(
 		'post_type' => 'post',
 		'orderby' => 'date',
@@ -63,7 +60,7 @@
 			?>
 				<!-- slide -->
 				<li class='slide cover-image <?php echo 'align-content--' . $attributes["content"]["alignment"] ?>' style='left: <?php echo (($query->current_post) * 100) . "%" ?>; background-color: <?php echo $attributes["coverImage"]["bgColor"] ?>'>
-					<article class='slide-content <?php if ($attributes["content"]["background"]) : ?>drop-shadow blur-bg<?php endif ?>' style='<?php if ($attributes["content"]["background"]) : ?>background-color: <?php echo hexToRgb($attributes['content']['bgColor'], 0.5); ?>; color: <?php echo $attributes['content']['fontColor'] ?>;<?php endif ?>' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
+					<article class='slide-content <?php if ($attributes["content"]["background"]) : ?>drop-shadow blur-bg<?php endif ?>' style='<?php if ($attributes["content"]["background"]) : ?>background-color: <?php echo hex_to_rgb($attributes['content']['bgColor'], 0.5); ?>; color: <?php echo $attributes['content']['fontColor'] ?>;<?php endif ?>' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
 						<?php if ($attributes['content']['showTitle']) : ?>
 							<h2 class='slide-content__title'>
 								<?php echo the_title() ?>
