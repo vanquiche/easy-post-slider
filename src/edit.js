@@ -306,6 +306,9 @@ export default function Edit({ attributes, setAttributes }) {
 						backgroundColor: attributes.content.background
 							? getHexToRgb(attributes.content.bgColor, 0.5)
 							: null,
+						color: attributes.content.background
+							? attributes.content.fontColor
+							: "inherit",
 					}}
 				>
 					{attributes.content.showTitle && (
@@ -313,11 +316,12 @@ export default function Edit({ attributes, setAttributes }) {
 					)}
 					{attributes.content.showExcerpt && (
 						<p className="slide__excerpt">
-							So she was considering in her own mind (as well as she could, for
-							the hot day made her feel very sleepy and stupid) whether the
-							pleasure of making a daisy-chain would be worth the trouble of
-							getting up and picking the daisies, when suddenly a White Rabbit
-							with pink eyes ran close by her.
+							This is an example of the post excerpt. So she was considering in
+							her own mind (as well as she could, for the hot day made her feel
+							very sleepy and stupid) whether the pleasure of making a
+							daisy-chain would be worth the trouble of getting up and picking
+							the daisies, when suddenly a White Rabbit with pink eyes ran close
+							by her.
 						</p>
 					)}
 					{attributes.content.showLink && (
