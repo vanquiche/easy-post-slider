@@ -60,6 +60,7 @@
 
 	@media screen and (max-width: 675px) {
 		opacity: 1;
+		width: 30px;
 	}
 }
 
@@ -87,11 +88,17 @@
 	display: flex;
 	flex-direction: column;
 	scroll-snap-align: center;
+	padding: 2rem;
+	box-sizing: border-box;
+
+	@media screen and (max-width: 675px) {
+		align-items: center;
+		text-align: center;
+	}
 }
 
 .slide-content {
 	padding: 2rem 3rem;
-	margin: 0 75px;
 	z-index: 90;
 
 	&:focus {
@@ -102,7 +109,6 @@
 		width: 80%;
 		min-width: 300px;
 		max-width: 550px;
-		// width: 300px;
 		padding: 1rem;
 	}
 }
