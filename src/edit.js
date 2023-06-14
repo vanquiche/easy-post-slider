@@ -161,7 +161,7 @@ export default function Edit({ attributes, setAttributes }) {
 							style={{ marginTop: "12px" }}
 							id="button-color-control"
 							colors={colors}
-							value={attributes.buttons.color}
+							value={attributes.buttons.bgColor}
 							onChange={(value) =>
 								setAttributes({
 									buttons: {
