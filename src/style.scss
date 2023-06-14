@@ -39,10 +39,9 @@
 	}
 }
 
-.interface {
+.navigation-button-wrapper {
 	position: absolute;
 	z-index: 100;
-	backdrop-filter: blur(4px);
 
 	@media screen and (max-width: 675px) {
 		margin: 0;
@@ -146,7 +145,6 @@
 	display: inline-block;
 	position: relative;
 	padding: 1rem;
-	@extend .blur-bg;
 }
 
 .slide-content__read-more-label {
