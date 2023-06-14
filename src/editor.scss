@@ -58,9 +58,21 @@
 	width: 75px;
 }
 
+.slide__content {
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem;
+	z-index: 90;
+}
+
 .slide__excerpt {
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.slide__link-container {
+	display: flex;
+	flex-direction: column;
 }
 
 .slide__link {
