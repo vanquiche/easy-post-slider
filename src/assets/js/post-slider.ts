@@ -146,15 +146,14 @@ export default class PostSlider {
 			if (currentSlide === this.slider.children.length) {
 				nextButton.disabled = true;
 				nextButton.ariaDisabled = "true";
+				previousButton.disabled = false;
+				previousButton.ariaDisabled = "false";
 				// is at the beginning slide
 			} else if (currentSlide === 1) {
 				previousButton.disabled = true;
 				previousButton.ariaDisabled = "true";
-			} else {
 				nextButton.disabled = false;
 				nextButton.ariaDisabled = "false";
-				previousButton.disabled = false;
-				previousButton.ariaDisabled = "false";
 			}
 		}
 	}
