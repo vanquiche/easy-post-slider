@@ -75,7 +75,7 @@ export default class PostSlider {
 				this.slider.querySelectorAll(".slide-content")
 			).map((s) => s.clientHeight);
 			const largetSlideHeight = Math.max(...slides);
-			this.slider.style.height = largetSlideHeight + "px";
+			this.slider.style.height = 100 + largetSlideHeight + "px";
 		}
 	}
 
