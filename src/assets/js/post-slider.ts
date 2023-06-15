@@ -153,18 +153,25 @@ export default class PostSlider {
 			const nextButton = this.slideWrapper.querySelector(
 				'[data-post-slider-action="next"]'
 			) as HTMLButtonElement;
+
+			function setDisableState(
+				button: HTMLButtonElement,
+				state: boolean
+			) {
+				button.disabled = state;
+				button.ariaDisabled = '' + state;
+			}
 			// is at the last slide
 			if ( currentSlide === this.slider.children.length ) {
-				nextButton.disabled = true;
-				nextButton.ariaDisabled = 'true';
-				previousButton.disabled = false;
-				previousButton.ariaDisabled = 'false';
+				setDisableState( nextButton, true );
+				setDisableState( previousButton, false );
 				// is at the beginning slide
 			} else if ( currentSlide === 1 ) {
-				previousButton.disabled = true;
-				previousButton.ariaDisabled = 'true';
-				nextButton.disabled = false;
-				nextButton.ariaDisabled = 'false';
+				setDisableState( previousButton, true );
+				setDisableState( nextButton, false );
+			} else {
+				setDisableState( nextButton, false );
+				setDisableState( previousButton, false );
 			}
 		}
 	}
