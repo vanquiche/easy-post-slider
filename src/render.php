@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
@@ -88,7 +87,7 @@
 					<!-- cover image overlay -->
 					<div class='slide-content__image-overlay opacity--<?php echo $attributes['coverImage']['opacity'] * 10 ?>' style='background-color: <?php echo $attributes['coverImage']['bgColor'] ?>' aria-hidden='true'></div>
 					<!-- hires cover image -->
-					<?php echo the_post_thumbnail('large', array('class' => 'slide-content__image-full', 'alt' => '')) ?>
+					<?php echo the_post_thumbnail('full', array('class' => 'slide-content__image-full', 'alt' => '')) ?>
 					<!-- lores placeholder image -->
 					<?php echo the_post_thumbnail('thumbnail', array('class' => 'slide-content__image-thumbnail', 'alt' => '')) ?>
 				</li>
