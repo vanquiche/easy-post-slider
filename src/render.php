@@ -54,7 +54,7 @@
 				<div data-post-slider='scrollbar-overlay' class='scrollbar__overlay' style='background-color: <?php echo $attributes["scrollbar"]["color"] ?>;'></div>
 			</div>
 		<?php endif ?>
-		<!-- slider component -->
+		<!-- slider -->
 		<ul class='post-slider' style='min-height: <?php echo $attributes["content"]["minHeight"] ?>' aria-label='featured posts'>
 			<?php
 			while ($query->have_posts()) :
@@ -62,7 +62,7 @@
 			?>
 				<!-- slide -->
 				<li class='slide cover-image <?php echo 'align-content--' . $attributes["content"]["alignment"] ?>' style='left: <?php echo (($query->current_post) * 100) . "%" ?>; background-color: <?php echo $attributes["coverImage"]["bgColor"] ?>'>
-					<!-- slide content -->
+					<!-- content -->
 					<article class='slide-content <?php if ($attributes["content"]["background"]) : ?>drop-shadow blur-bg<?php endif ?>' style='<?php if ($attributes["content"]["background"]) : ?>background-color: <?php echo hex_to_rgb($attributes['content']['bgColor'], $attributes['content']['transparentBg'] ? 0.5 : 1); ?>; color: <?php echo $attributes['content']['fontColor'] ?>;<?php endif ?>' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
 						<?php if ($attributes['content']['showTitle']) : ?>
 							<h2 class='slide-content__title'>
