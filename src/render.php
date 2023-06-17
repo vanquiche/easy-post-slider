@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
@@ -61,7 +62,7 @@
 				<!-- slide -->
 				<li class='slide cover-image <?php echo 'align-content--' . $attributes["content"]["alignment"] ?>' style='left: <?php echo (($query->current_post) * 100) . "%" ?>;'>
 					<!-- content -->
-					<article class='slide-content <?php if ($attributes["content"]["background"]) : ?>drop-shadow blur-bg<?php endif ?>' style='<?php if ($attributes["content"]["background"]) : ?>background-color: <?php echo hex_to_rgb($attributes['content']['bgColor'], $attributes['content']['transparentBg'] ? 0.5 : 1); ?>; color: <?php echo $attributes['content']['fontColor'] ?>;<?php endif ?>' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
+					<article class='slide-content <?php if ($attributes["content"]["background"]) : ?>drop-shadow blur-bg<?php endif ?>' style='<?php if ($attributes["content"]["background"]) : ?>background-color: <?php echo hex_to_rgb($attributes["content"]["bgColor"], $attributes["content"]["transparentBg"] ? 0.5 : 1); ?>; color: <?php echo $attributes["content"]["fontColor"] ?>;<?php endif ?>' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
 						<?php if ($attributes['content']['showTitle']) : ?>
 							<h2 class='slide-content__title'>
 								<?php echo the_title() ?>
@@ -84,7 +85,7 @@
 						<?php endif ?>
 					</article>
 					<!-- cover image overlay -->
-					<div class='slide-content__image-overlay opacity--<?php echo $attributes['coverImage']['opacity'] * 10 ?>' style='background-color: <?php echo $attributes['coverImage']['overlayColor'] ?>' aria-hidden='true'></div>
+					<div class='slide-content__image-overlay opacity--<?php echo $attributes["coverImage"]["opacity"] * 10 ?>' style='background-color: <?php echo $attributes["coverImage"]["overlayColor"] ?>' aria-hidden='true'></div>
 					<!-- hires cover image -->
 					<?php echo the_post_thumbnail('full', array('class' => 'slide-content__image-full', 'alt' => '')) ?>
 					<!-- lores placeholder image -->
