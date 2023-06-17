@@ -3,8 +3,7 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<section <?php echo get_block_wrapper_attributes(); ?>>
-	<!-- <?php echo print_r($attributes) ?> -->
+<section <?php echo get_block_wrapper_attributes(); ?> aria-label='featured post slider'>
 	<?php
 	include_once 'assets/php/hex_to_rgb.php';
 
@@ -60,7 +59,7 @@
 				$query->the_post();
 			?>
 				<!-- slide -->
-				<li class='slide cover-image <?php echo 'align-content--' . $attributes["content"]["alignment"] ?>' style='left: <?php echo (($query->current_post) * 100) . "%" ?>; background-color: <?php echo $attributes["coverImage"]["bgColor"] ?>'>
+				<li class='slide cover-image <?php echo 'align-content--' . $attributes["content"]["alignment"] ?>' style='left: <?php echo (($query->current_post) * 100) . "%" ?>;'>
 					<!-- content -->
 					<article class='slide-content <?php if ($attributes["content"]["background"]) : ?>drop-shadow blur-bg<?php endif ?>' style='<?php if ($attributes["content"]["background"]) : ?>background-color: <?php echo hex_to_rgb($attributes['content']['bgColor'], $attributes['content']['transparentBg'] ? 0.5 : 1); ?>; color: <?php echo $attributes['content']['fontColor'] ?>;<?php endif ?>' data-post-slider-number='<?php echo ($query->current_post + 1) ?>'>
 						<?php if ($attributes['content']['showTitle']) : ?>
@@ -79,13 +78,13 @@
 									<span class='slide-content__read-more-label' style='color: <?php echo $attributes["buttons"]["fontColor"] ?>'>
 										Read Now
 									</span>
-									<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>; opacity: <?php echo $attributes["buttons"]["opacity"] ?>%;' aria-hidden='true'></span>
+									<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>;' aria-hidden='true'></span>
 								</a>
 							</div>
 						<?php endif ?>
 					</article>
 					<!-- cover image overlay -->
-					<div class='slide-content__image-overlay opacity--<?php echo $attributes['coverImage']['opacity'] * 10 ?>' style='background-color: <?php echo $attributes['coverImage']['bgColor'] ?>' aria-hidden='true'></div>
+					<div class='slide-content__image-overlay opacity--<?php echo $attributes['coverImage']['opacity'] * 10 ?>' style='background-color: <?php echo $attributes['coverImage']['overlayColor'] ?>' aria-hidden='true'></div>
 					<!-- hires cover image -->
 					<?php echo the_post_thumbnail('full', array('class' => 'slide-content__image-full', 'alt' => '')) ?>
 					<!-- lores placeholder image -->
