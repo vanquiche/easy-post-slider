@@ -74,9 +74,14 @@ export default function Edit( { attributes, setAttributes } ) {
 			<InspectorControls>
 				<div className="editor-post-slider-controls">
 					<fieldset>
-						<h2>Content</h2>
+						<h2>
+							{ __( 'Content', 'parfait-designs-post-slider' ) }
+						</h2>
 						<CheckboxControl
-							label="Show Title"
+							label={ __(
+								'Show Title',
+								'parfait-designs-post-slider'
+							) }
 							checked={ attributes.content.showTitle }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -86,10 +91,16 @@ export default function Edit( { attributes, setAttributes } ) {
 									},
 								} )
 							}
-							help="Toggle post title visibility"
+							help={ __(
+								'Toggle post title visibility',
+								'parfait-designs-post-slider'
+							) }
 						/>
 						<CheckboxControl
-							label="Show Excerpt"
+							label={ __(
+								'Show Excerpt',
+								'parfait-designs-post-slider'
+							) }
 							checked={ attributes.content.showExcerpt }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -99,7 +110,10 @@ export default function Edit( { attributes, setAttributes } ) {
 									},
 								} )
 							}
-							help="Toggle post excerpt visibility"
+							help={ __(
+								'Toggle post excerpt visibility',
+								'parfait-designs-post-slider'
+							) }
 						/>
 						<CheckboxControl
 							label="Show Link"
@@ -112,10 +126,16 @@ export default function Edit( { attributes, setAttributes } ) {
 									},
 								} )
 							}
-							help="Toggle post link visibility"
+							help={ __(
+								'Toggle post link visibility',
+								'parfait-designs-post-slider'
+							) }
 						/>
 						<CheckboxControl
-							label="Content Background"
+							label={ __(
+								'Content Background',
+								'parfait-designs-post-slider'
+							) }
 							checked={ attributes.content.background }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -125,10 +145,16 @@ export default function Edit( { attributes, setAttributes } ) {
 									},
 								} )
 							}
-							help="Disabling this feature may affect the contrast and readability"
+							help={ __(
+								'Disabling this feature may affect the contrast and readability',
+								'parfait-designs-post-slider'
+							) }
 						/>
 						<CheckboxControl
-							label="Transparent background"
+							label={ __(
+								'Transparent background',
+								'parfait-designs-post-slider'
+							) }
 							checked={ attributes.content.transparentBg }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -140,7 +166,10 @@ export default function Edit( { attributes, setAttributes } ) {
 							}
 						/>
 						<label htmlFor="content-background-color-control">
-							Content Background Color
+							{ __(
+								'Content Background Color',
+								'parfait-designs-post-slider'
+							) }
 						</label>
 						<ColorPalette
 							style={ { margin: '12px 0' } }
@@ -188,9 +217,14 @@ export default function Edit( { attributes, setAttributes } ) {
 						/>
 					</fieldset>
 					<fieldset>
-						<h2>Styles</h2>
+						<h2>
+							{ __( 'Styles', 'parfait-designs-post-slider' ) }
+						</h2>
 						<label htmlFor="button-color-control">
-							Button Color
+							{ __(
+								'Button Color',
+								'parfait-designs-post-slider'
+							) }
 						</label>
 						<ColorPalette
 							style={ { margin: '12px 0' } }
@@ -209,7 +243,10 @@ export default function Edit( { attributes, setAttributes } ) {
 							}
 						/>
 						<label htmlFor="scrollbar-color-control">
-							Scrollbar Color
+							{ __(
+								'Scrollbar Color',
+								'parfait-designs-post-slider'
+							) }
 						</label>
 						<ColorPalette
 							style={ { margin: '12px 0' } }
@@ -227,7 +264,10 @@ export default function Edit( { attributes, setAttributes } ) {
 							}
 						/>
 						<CheckboxControl
-							label="show scrollbar"
+							label={ __(
+								'show scrollbar',
+								'parfait-designs-post-slider'
+							) }
 							checked={ attributes.scrollbar.showScrollbar }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -237,10 +277,16 @@ export default function Edit( { attributes, setAttributes } ) {
 									},
 								} )
 							}
-							help="Toggle scrollbar visibility"
+							help={ __(
+								'Toggle scrollbar visibility',
+								'parfait-designs-post-slider'
+							) }
 						/>
 						<RangeControl
-							label="cover image overlay"
+							label={ __(
+								'cover image overlay',
+								'parfait-designs-post-slider'
+							) }
 							value={ attributes.coverImage.opacity }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -255,7 +301,10 @@ export default function Edit( { attributes, setAttributes } ) {
 							step={ 1 }
 						/>
 						<label htmlFor="overlay-color-control">
-							Overlay Color
+							{ __(
+								'Overlay Color',
+								'parfait-designs-post-slider'
+							) }
 						</label>
 						<ColorPalette
 							style={ { margin: '12px 0' } }
@@ -275,9 +324,14 @@ export default function Edit( { attributes, setAttributes } ) {
 						/>
 					</fieldset>
 					<fieldset>
-						<h2>Query</h2>
+						<h2>
+							{ __( 'Query', 'parfait-designs-post-slider' ) }
+						</h2>
 						<RangeControl
-							label="number of posts"
+							label={ __(
+								'number of posts',
+								'parfait-designs-post-slider'
+							) }
 							value={ attributes.query.posts_per_page }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -293,7 +347,10 @@ export default function Edit( { attributes, setAttributes } ) {
 						/>
 						{ categories && (
 							<SelectControl
-								label="filter by category"
+								label={ __(
+									'filter by category',
+									'parfait-designs-post-slider'
+								) }
 								value={ attributes.query.cat }
 								options={ categories.map(
 									( { name, id } ) => ( {
@@ -312,7 +369,10 @@ export default function Edit( { attributes, setAttributes } ) {
 							/>
 						) }
 						<TextControl
-							label="filter by tag(s)"
+							label={ __(
+								'filter by tag(s)',
+								'parfait-designs-post-slider'
+							) }
 							value={ attributes.query.tag_slug__in.join() }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -322,7 +382,10 @@ export default function Edit( { attributes, setAttributes } ) {
 									},
 								} )
 							}
-							help="Separate tags with comas"
+							help={ __(
+								'Separate tags with comas',
+								'parfait-designs-post-slider'
+							) }
 						/>
 					</fieldset>
 				</div>
@@ -356,17 +419,19 @@ export default function Edit( { attributes, setAttributes } ) {
 					} }
 				>
 					{ attributes.content.showTitle && (
-						<h2 className="slide__title">Post Title</h2>
+						<h2 className="slide__title">
+							{ __(
+								'Post Title',
+								'parfait-designs-post-slider'
+							) }
+						</h2>
 					) }
 					{ attributes.content.showExcerpt && (
 						<p className="slide__excerpt">
-							This is an example of the post excerpt. So she was
-							considering in her own mind (as well as she could,
-							for the hot day made her feel very sleepy and
-							stupid) whether the pleasure of making a daisy-chain
-							would be worth the trouble of getting up and picking
-							the daisies, when suddenly a White Rabbit with pink
-							eyes ran close by her.
+							{ __(
+								'This is an example of the post excerpt. So she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid) whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.',
+								'parfait-designs-post-slider'
+							) }
 						</p>
 					) }
 					{ attributes.content.showLink && (
@@ -380,7 +445,10 @@ export default function Edit( { attributes, setAttributes } ) {
 										color: attributes.buttons.fontColor,
 									} }
 								>
-									Read More
+									{ __(
+										'Read More',
+										'parfait-designs-post-slider'
+									) }
 								</span>
 								<span
 									id="button-overlay"

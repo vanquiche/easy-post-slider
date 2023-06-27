@@ -77,7 +77,7 @@
 							<div class='slide-content__read-more'>
 								<a class='slide-content__read-more-link' href="<?php echo the_permalink() ?>" tabindex="0">
 									<span class='slide-content__read-more-label' style='color: <?php echo $attributes["buttons"]["fontColor"] ?>'>
-										Read Now
+										<?php esc_html_e('Read Now', 'parfait-designs-post-slider') ?>
 									</span>
 									<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>;' aria-hidden='true'></span>
 								</a>
