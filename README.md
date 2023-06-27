@@ -1,6 +1,8 @@
 # Parfait Designs Post Slider Block
 
-A dynamic block that will display your posts within a slider/carousel component. In addition to being easy to use, this block contains several options to customize the look and behavior to match your brand.
+A Wordpress dynamic block that will display your posts within a slider/carousel component. In addition to being easy to use, this block contains several options to customize the look and behavior to match your brand.
+
+This plugin was bootstrapped with the [@wordpress/create-block](https://www.npmjs.com/package/@wordpress/create-block) tool with the help of [@wordpress/scripts](https://github.com/WordPress/gutenberg/blob/40aa28015c2ddb692d9d1dd118e4c56b56514bd1/packages/scripts/README.md).
 
 ## Features
 
