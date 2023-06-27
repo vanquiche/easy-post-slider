@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 import getContrastColor from './assets/js/getContrastColor';
 import getHexToRgb from './assets/js/getHexToRgb';
+import { COLORS, BG_COLORS } from './assets/js/palette';
 
 import {
 	RangeControl,
@@ -41,18 +42,6 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-
-const colors = [
-	{ name: 'red', color: '#dd1c1a' },
-	{ name: 'black', color: '#343a40' },
-	{ name: 'white', color: '#f6fff8' },
-];
-
-const bgColors = [
-	{ name: 'charcoal', color: '#465362' },
-	{ name: 'eggshell', color: '#e7ecef' },
-];
-
 const units = [
 	{ value: 'px', label: 'px', default: 0 },
 	{ value: '%', label: '%', default: 10 },
@@ -146,7 +135,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								} )
 							}
 							help={ __(
-								'Disabling this feature may affect the contrast and readability',
+								'Disabling this feature may affect the readability of some text.',
 								'parfait-designs-post-slider'
 							) }
 						/>
@@ -164,6 +153,10 @@ export default function Edit( { attributes, setAttributes } ) {
 									},
 								} )
 							}
+							help={ __(
+								'Enabling this feature may affect the readability of some text.',
+								'parfait-designs-post-slider'
+							) }
 						/>
 						<label htmlFor="content-background-color-control">
 							{ __(
@@ -175,7 +168,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							style={ { margin: '12px 0' } }
 							id="content-background-color-control"
 							clearable={ false }
-							colors={ bgColors }
+							colors={ COLORS }
 							value={ attributes.content.bgColor }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -230,7 +223,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							style={ { margin: '12px 0' } }
 							id="button-color-control"
 							clearable={ false }
-							colors={ colors }
+							colors={ COLORS }
 							value={ attributes.buttons.bgColor }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -252,7 +245,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							style={ { margin: '12px 0' } }
 							id="button-scrollbar-control"
 							clearable={ false }
-							colors={ colors }
+							colors={ COLORS }
 							value={ attributes.scrollbar.color }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -310,7 +303,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							style={ { margin: '12px 0' } }
 							id="overlay-color-control"
 							clearable={ false }
-							colors={ bgColors }
+							colors={ BG_COLORS }
 							value={ attributes.coverImage.overlayColor }
 							onChange={ ( value ) =>
 								setAttributes( {
