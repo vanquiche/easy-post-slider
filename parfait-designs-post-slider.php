@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:       Parfait Designs Post Slider
  * Description:       Example block scaffolded with Create Block tool.
@@ -20,7 +21,10 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_parfait_designs_post_slider_block_init() {
-	register_block_type( __DIR__ . '/build' );
+function create_block_parfait_designs_post_slider_block_init()
+{
+	register_block_type(__DIR__ . '/build');
 }
-add_action( 'init', 'create_block_parfait_designs_post_slider_block_init' );
+add_action('init', 'create_block_parfait_designs_post_slider_block_init');
+
+add_image_size('blurry-thumbnail', 10, 10);

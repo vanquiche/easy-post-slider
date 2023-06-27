@@ -89,7 +89,7 @@
 					<!-- hires cover image -->
 					<?php echo the_post_thumbnail('full', array('class' => 'slide-content__image-full', 'alt' => '')) ?>
 					<!-- lores placeholder image -->
-					<?php echo the_post_thumbnail('thumbnail', array('class' => 'slide-content__image-thumbnail', 'alt' => '')) ?>
+					<?php echo the_post_thumbnail('blurry-thumbnail', array('class' => 'slide-content__image-thumbnail', 'alt' => '')) ?>
 				</li>
 			<?php endwhile ?>
 		</ul>
