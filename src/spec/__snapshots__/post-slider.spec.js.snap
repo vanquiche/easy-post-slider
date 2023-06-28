@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post Slider Block Post Slider block should be available 1`] = `"<!-- wp:parfait-designs/post-slider /-->"`;
