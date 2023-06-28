@@ -32,3 +32,4 @@ node_modules/
 
 #e2e testing
 artifacts/
+spec/__snapshots__
