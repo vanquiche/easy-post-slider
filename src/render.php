@@ -47,7 +47,7 @@
 		<!-- accessible live region to indicate slide number -->
 		<div data-post-slider='live-region' class='visuallyhidden' aria-live="polite" aria-atomic="true"></div>
 		<!-- scrollbar -->
-		<?php if ($attributes['scrollbar']['showScrollbar']) : ?>
+		<?php if ($attributes['scrollbar']['showScrollbar'] && $query->post_count > 1) : ?>
 			<div data-post-slider='scrollbar' class='scrollbar' aria-hidden='true'>
 				<div data-post-slider='scrollbar-inner' class='scrollbar__inner' style='background-color: <?php echo $attributes["scrollbar"]["color"] ?>;'></div>
 				<div data-post-slider='scrollbar-overlay' class='scrollbar__overlay' style='background-color: <?php echo $attributes["scrollbar"]["color"] ?>;'></div>
