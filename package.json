@@ -12,9 +12,11 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start --webpack-copy-php"
+		"start": "wp-scripts start --webpack-copy-php",
+		"test:e2e": "wp-scripts test-e2e"
 	},
 	"devDependencies": {
+		"@wordpress/e2e-test-utils": "^10.6.0",
 		"@wordpress/scripts": "^26.6.0"
 	}
 }
