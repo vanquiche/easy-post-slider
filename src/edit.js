@@ -17,6 +17,7 @@ import {
 	CheckboxControl,
 	__experimentalUnitControl as UnitControl,
 	__experimentalAlignmentMatrixControl as AlignmentMatrixControl,
+	PanelBody,
 } from '@wordpress/components';
 /**
  * React hook that is used to mark the block wrapper element.
@@ -62,325 +63,337 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<div className="editor-post-slider-controls">
-					<fieldset>
-						<h2>
-							{ __( 'Content', 'parfait-designs-post-slider' ) }
-						</h2>
-						<CheckboxControl
-							label={ __(
-								'Show Title',
-								'parfait-designs-post-slider'
-							) }
-							checked={ attributes.content.showTitle }
-							onChange={ ( value ) =>
-								setAttributes( {
-									content: {
-										...attributes.content,
-										showTitle: value,
-									},
-								} )
-							}
-							help={ __(
-								'Toggle post title visibility',
-								'parfait-designs-post-slider'
-							) }
-						/>
-						<CheckboxControl
-							label={ __(
-								'Show Excerpt',
-								'parfait-designs-post-slider'
-							) }
-							checked={ attributes.content.showExcerpt }
-							onChange={ ( value ) =>
-								setAttributes( {
-									content: {
-										...attributes.content,
-										showExcerpt: value,
-									},
-								} )
-							}
-							help={ __(
-								'Toggle post excerpt visibility',
-								'parfait-designs-post-slider'
-							) }
-						/>
-						<CheckboxControl
-							label="Show Link"
-							checked={ attributes.content.showLink }
-							onChange={ ( value ) =>
-								setAttributes( {
-									content: {
-										...attributes.content,
-										showLink: value,
-									},
-								} )
-							}
-							help={ __(
-								'Toggle post link visibility',
-								'parfait-designs-post-slider'
-							) }
-						/>
-						<CheckboxControl
-							label={ __(
-								'Content Background',
-								'parfait-designs-post-slider'
-							) }
-							checked={ attributes.content.background }
-							onChange={ ( value ) =>
-								setAttributes( {
-									content: {
-										...attributes.content,
-										background: value,
-									},
-								} )
-							}
-							help={ __(
-								'Disabling this feature may affect the readability of some text.',
-								'parfait-designs-post-slider'
-							) }
-						/>
-						<CheckboxControl
-							label={ __(
-								'Transparent background',
-								'parfait-designs-post-slider'
-							) }
-							checked={ attributes.content.transparentBg }
-							onChange={ ( value ) =>
-								setAttributes( {
-									content: {
-										...attributes.content,
-										transparentBg: value,
-									},
-								} )
-							}
-							help={ __(
-								'Enabling this feature may affect the readability of some text.',
-								'parfait-designs-post-slider'
-							) }
-						/>
-						<label htmlFor="content-background-color-control">
-							{ __(
-								'Content Background Color',
-								'parfait-designs-post-slider'
-							) }
-						</label>
-						<ColorPalette
-							style={ { margin: '12px 0' } }
-							id="content-background-color-control"
-							clearable={ false }
-							colors={ COLORS }
-							value={ attributes.content.bgColor }
-							onChange={ ( value ) =>
-								setAttributes( {
-									content: {
-										...attributes.content,
-										bgColor: value,
-										fontColor: getContrastColor( value ),
-									},
-								} )
-							}
-						/>
-
-						<AlignmentMatrixControl
-							value={ attributes.content.alignment.replace(
-								'-',
-								' '
-							) }
-							onChange={ ( value ) =>
-								setAttributes( {
-									content: {
-										...attributes.content,
-										alignment: value.replace( ' ', '-' ),
-									},
-								} )
-							}
-						/>
-						<UnitControl
-							className="editor-post-slider-units-control"
-							value={ attributes.content.minHeight }
-							onChange={ ( value ) =>
-								setAttributes( {
-									content: {
-										...attributes.content,
-										minHeight: value,
-									},
-								} )
-							}
-							units={ units }
-						/>
-					</fieldset>
-					<fieldset>
-						<h2>
-							{ __( 'Styles', 'parfait-designs-post-slider' ) }
-						</h2>
-						<label htmlFor="button-color-control">
-							{ __(
-								'Button Color',
-								'parfait-designs-post-slider'
-							) }
-						</label>
-						<ColorPalette
-							style={ { margin: '12px 0' } }
-							id="button-color-control"
-							clearable={ false }
-							colors={ COLORS }
-							value={ attributes.buttons.bgColor }
-							onChange={ ( value ) =>
-								setAttributes( {
-									buttons: {
-										...attributes.buttons,
-										bgColor: value,
-										fontColor: getContrastColor( value ),
-									},
-								} )
-							}
-						/>
-						<label htmlFor="scrollbar-color-control">
-							{ __(
-								'Scrollbar Color',
-								'parfait-designs-post-slider'
-							) }
-						</label>
-						<ColorPalette
-							style={ { margin: '12px 0' } }
-							id="button-scrollbar-control"
-							clearable={ false }
-							colors={ COLORS }
-							value={ attributes.scrollbar.color }
-							onChange={ ( value ) =>
-								setAttributes( {
-									scrollbar: {
-										...attributes.scrollbar,
-										color: value,
-									},
-								} )
-							}
-						/>
-						<CheckboxControl
-							label={ __(
-								'show scrollbar',
-								'parfait-designs-post-slider'
-							) }
-							checked={ attributes.scrollbar.showScrollbar }
-							onChange={ ( value ) =>
-								setAttributes( {
-									scrollbar: {
-										...attributes.scrollbar,
-										showScrollbar: value,
-									},
-								} )
-							}
-							help={ __(
-								'Toggle scrollbar visibility',
-								'parfait-designs-post-slider'
-							) }
-						/>
-						<RangeControl
-							label={ __(
-								'cover image overlay',
-								'parfait-designs-post-slider'
-							) }
-							value={ attributes.coverImage.opacity }
-							onChange={ ( value ) =>
-								setAttributes( {
-									coverImage: {
-										...attributes.coverImage,
-										opacity: parseInt( value ),
-									},
-								} )
-							}
-							min={ 0 }
-							max={ 10 }
-							step={ 1 }
-						/>
-						<label htmlFor="overlay-color-control">
-							{ __(
-								'Overlay Color',
-								'parfait-designs-post-slider'
-							) }
-						</label>
-						<ColorPalette
-							style={ { margin: '12px 0' } }
-							id="overlay-color-control"
-							clearable={ false }
-							colors={ BG_COLORS }
-							value={ attributes.coverImage.overlayColor }
-							onChange={ ( value ) =>
-								setAttributes( {
-									coverImage: {
-										...attributes.coverImage,
-										overlayColor: value,
-										fontColor: getContrastColor( value ),
-									},
-								} )
-							}
-						/>
-					</fieldset>
-					<fieldset>
-						<h2>
-							{ __( 'Query', 'parfait-designs-post-slider' ) }
-						</h2>
-						<RangeControl
-							label={ __(
-								'number of posts',
-								'parfait-designs-post-slider'
-							) }
-							value={ attributes.query.posts_per_page }
-							onChange={ ( value ) =>
-								setAttributes( {
-									query: {
-										...attributes.query,
-										posts_per_page: parseInt( value ),
-									},
-								} )
-							}
-							min={ 1 }
-							max={ 6 }
-							step={ 1 }
-						/>
-						{ categories && (
-							<SelectControl
+					<PanelBody
+						title={ __( 'Content', 'parfait-designs-post-slider' ) }
+						initialOpen={ true }
+					>
+						<fieldset>
+							<CheckboxControl
 								label={ __(
-									'filter by category',
+									'Show Title',
 									'parfait-designs-post-slider'
 								) }
-								value={ attributes.query.cat }
-								options={ categories.map(
-									( { name, id } ) => ( {
-										label: name,
-										value: id,
-									} )
-								) }
+								checked={ attributes.content.showTitle }
 								onChange={ ( value ) =>
 									setAttributes( {
-										query: {
-											...attributes.query,
-											cat: parseInt( value ),
+										content: {
+											...attributes.content,
+											showTitle: value,
+										},
+									} )
+								}
+								help={ __(
+									'Toggle post title visibility',
+									'parfait-designs-post-slider'
+								) }
+							/>
+							<CheckboxControl
+								label={ __(
+									'Show Excerpt',
+									'parfait-designs-post-slider'
+								) }
+								checked={ attributes.content.showExcerpt }
+								onChange={ ( value ) =>
+									setAttributes( {
+										content: {
+											...attributes.content,
+											showExcerpt: value,
+										},
+									} )
+								}
+								help={ __(
+									'Toggle post excerpt visibility',
+									'parfait-designs-post-slider'
+								) }
+							/>
+							<CheckboxControl
+								label="Show Link"
+								checked={ attributes.content.showLink }
+								onChange={ ( value ) =>
+									setAttributes( {
+										content: {
+											...attributes.content,
+											showLink: value,
+										},
+									} )
+								}
+								help={ __(
+									'Toggle post link visibility',
+									'parfait-designs-post-slider'
+								) }
+							/>
+							<CheckboxControl
+								label={ __(
+									'Content Background',
+									'parfait-designs-post-slider'
+								) }
+								checked={ attributes.content.background }
+								onChange={ ( value ) =>
+									setAttributes( {
+										content: {
+											...attributes.content,
+											background: value,
+										},
+									} )
+								}
+								help={ __(
+									'Disabling this feature may affect the readability of some text.',
+									'parfait-designs-post-slider'
+								) }
+							/>
+							<CheckboxControl
+								label={ __(
+									'Transparent background',
+									'parfait-designs-post-slider'
+								) }
+								checked={ attributes.content.transparentBg }
+								onChange={ ( value ) =>
+									setAttributes( {
+										content: {
+											...attributes.content,
+											transparentBg: value,
+										},
+									} )
+								}
+								help={ __(
+									'Enabling this feature may affect the readability of some text.',
+									'parfait-designs-post-slider'
+								) }
+							/>
+							<label htmlFor="content-background-color-control">
+								{ __(
+									'Content Background Color',
+									'parfait-designs-post-slider'
+								) }
+							</label>
+							<ColorPalette
+								style={ { margin: '12px 0' } }
+								id="content-background-color-control"
+								clearable={ false }
+								colors={ COLORS }
+								value={ attributes.content.bgColor }
+								onChange={ ( value ) =>
+									setAttributes( {
+										content: {
+											...attributes.content,
+											bgColor: value,
+											fontColor:
+												getContrastColor( value ),
 										},
 									} )
 								}
 							/>
-						) }
-						<TextControl
-							label={ __(
-								'filter by tag(s)',
-								'parfait-designs-post-slider'
+
+							<AlignmentMatrixControl
+								value={ attributes.content.alignment.replace(
+									'-',
+									' '
+								) }
+								onChange={ ( value ) =>
+									setAttributes( {
+										content: {
+											...attributes.content,
+											alignment: value.replace(
+												' ',
+												'-'
+											),
+										},
+									} )
+								}
+							/>
+							<UnitControl
+								className="editor-post-slider-units-control"
+								value={ attributes.content.minHeight }
+								onChange={ ( value ) =>
+									setAttributes( {
+										content: {
+											...attributes.content,
+											minHeight: value,
+										},
+									} )
+								}
+								units={ units }
+							/>
+						</fieldset>
+					</PanelBody>
+					<PanelBody
+						title={ __( 'Styles', 'parfait-designs-post-slider' ) }
+						initialOpen={ false }
+					>
+						<fieldset>
+							<label htmlFor="button-color-control">
+								{ __(
+									'Button Color',
+									'parfait-designs-post-slider'
+								) }
+							</label>
+							<ColorPalette
+								style={ { margin: '12px 0' } }
+								id="button-color-control"
+								clearable={ false }
+								colors={ COLORS }
+								value={ attributes.buttons.bgColor }
+								onChange={ ( value ) =>
+									setAttributes( {
+										buttons: {
+											...attributes.buttons,
+											bgColor: value,
+											fontColor:
+												getContrastColor( value ),
+										},
+									} )
+								}
+							/>
+							<label htmlFor="scrollbar-color-control">
+								{ __(
+									'Scrollbar Color',
+									'parfait-designs-post-slider'
+								) }
+							</label>
+							<ColorPalette
+								style={ { margin: '12px 0' } }
+								id="button-scrollbar-control"
+								clearable={ false }
+								colors={ COLORS }
+								value={ attributes.scrollbar.color }
+								onChange={ ( value ) =>
+									setAttributes( {
+										scrollbar: {
+											...attributes.scrollbar,
+											color: value,
+										},
+									} )
+								}
+							/>
+							<CheckboxControl
+								label={ __(
+									'show scrollbar',
+									'parfait-designs-post-slider'
+								) }
+								checked={ attributes.scrollbar.showScrollbar }
+								onChange={ ( value ) =>
+									setAttributes( {
+										scrollbar: {
+											...attributes.scrollbar,
+											showScrollbar: value,
+										},
+									} )
+								}
+								help={ __(
+									'Toggle scrollbar visibility',
+									'parfait-designs-post-slider'
+								) }
+							/>
+							<RangeControl
+								label={ __(
+									'cover image overlay',
+									'parfait-designs-post-slider'
+								) }
+								value={ attributes.coverImage.opacity }
+								onChange={ ( value ) =>
+									setAttributes( {
+										coverImage: {
+											...attributes.coverImage,
+											opacity: parseInt( value ),
+										},
+									} )
+								}
+								min={ 0 }
+								max={ 10 }
+								step={ 1 }
+							/>
+							<label htmlFor="overlay-color-control">
+								{ __(
+									'Overlay Color',
+									'parfait-designs-post-slider'
+								) }
+							</label>
+							<ColorPalette
+								style={ { margin: '12px 0' } }
+								id="overlay-color-control"
+								clearable={ false }
+								colors={ BG_COLORS }
+								value={ attributes.coverImage.overlayColor }
+								onChange={ ( value ) =>
+									setAttributes( {
+										coverImage: {
+											...attributes.coverImage,
+											overlayColor: value,
+											fontColor:
+												getContrastColor( value ),
+										},
+									} )
+								}
+							/>
+						</fieldset>
+					</PanelBody>
+					<PanelBody
+						title={ __( 'Query', 'parfait-designs-post-slider' ) }
+						initialOpen={ false }
+					>
+						<fieldset>
+							<RangeControl
+								label={ __(
+									'number of posts',
+									'parfait-designs-post-slider'
+								) }
+								value={ attributes.query.posts_per_page }
+								onChange={ ( value ) =>
+									setAttributes( {
+										query: {
+											...attributes.query,
+											posts_per_page: parseInt( value ),
+										},
+									} )
+								}
+								min={ 1 }
+								max={ 6 }
+								step={ 1 }
+							/>
+							{ categories && (
+								<SelectControl
+									label={ __(
+										'filter by category',
+										'parfait-designs-post-slider'
+									) }
+									value={ attributes.query.cat }
+									options={ categories.map(
+										( { name, id } ) => ( {
+											label: name,
+											value: id,
+										} )
+									) }
+									onChange={ ( value ) =>
+										setAttributes( {
+											query: {
+												...attributes.query,
+												cat: parseInt( value ),
+											},
+										} )
+									}
+								/>
 							) }
-							value={ attributes.query.tag_slug__in.join() }
-							onChange={ ( value ) =>
-								setAttributes( {
-									query: {
-										...attributes.query,
-										tag_slug__in: value.split( ',' ),
-									},
-								} )
-							}
-							help={ __(
-								'Separate tags with comas',
-								'parfait-designs-post-slider'
-							) }
-						/>
-					</fieldset>
+							<TextControl
+								label={ __(
+									'filter by tag(s)',
+									'parfait-designs-post-slider'
+								) }
+								value={ attributes.query.tag_slug__in.join() }
+								onChange={ ( value ) =>
+									setAttributes( {
+										query: {
+											...attributes.query,
+											tag_slug__in: value.split( ',' ),
+										},
+									} )
+								}
+								help={ __(
+									'Separate tags with comas',
+									'parfait-designs-post-slider'
+								) }
+							/>
+						</fieldset>
+					</PanelBody>
 				</div>
 			</InspectorControls>
 			<div
