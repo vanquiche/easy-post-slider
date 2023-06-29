@@ -3,22 +3,54 @@ import {
 	insertBlock,
 	enablePageDialogAccept,
 	createNewPost,
-} from '@wordpress/e2e-test-utils';
+} from "@wordpress/e2e-test-utils";
 
-describe( 'Post Slider Block', () => {
-	beforeAll( async () => {
+import {
+	selectBlockByName,
+	openInspectorControlPanel,
+	selectCheckboxByLabel,
+} from "./helper";
+
+describe("Post Slider Block", () => {
+	beforeAll(async () => {
 		await enablePageDialogAccept();
-	} );
+	});
 
-	beforeEach( async () => {
+	beforeEach(async () => {
 		await createNewPost();
-	} );
+	});
 
-	it( 'Post Slider block should be available', async () => {
-		await insertBlock( 'Parfait Designs Post Slider' );
+	it("Block should be available", async () => {
+		await insertBlock("Parfait Designs Post Slider");
+
 		expect(
-			await page.$( '[data-type="parfait-designs/post-slider"]' )
+			await page.$('[data-type="parfait-designs/post-slider"]')
 		).not.toBeNull();
-		expect( await getEditedPostContent() ).toMatchSnapshot();
-	} );
-} );
+
+		expect(await getEditedPostContent()).toMatchSnapshot();
+	});
+
+	it("Title visibility can be toggled", async () => {
+		await insertBlock("Parfait Designs Post Slider");
+
+		await selectBlockByName("parfait-designs/post-slider");
+
+		await openInspectorControlPanel();
+
+		await selectCheckboxByLabel("Show Title");
+
+		expect(await getEditedPostContent()).toMatchSnapshot();
+	});
+
+	it("Excerpt visibility can be toggled", async () => {
+		await insertBlock("Parfait Designs Post Slider");
+
+		await selectBlockByName("parfait-designs/post-slider");
+
+		await openInspectorControlPanel();
+
+		await selectCheckboxByLabel("Show Excerpt");
+
+		expect(await getEditedPostContent()).toMatchSnapshot();
+	});
+});
