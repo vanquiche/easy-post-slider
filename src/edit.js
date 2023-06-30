@@ -64,15 +64,12 @@ export default function Edit( { attributes, setAttributes } ) {
 			<InspectorControls>
 				<div className="editor-post-slider-controls">
 					<PanelBody
-						title={ __( 'Content', 'parfait-designs-post-slider' ) }
+						title={ __( 'Content', 'easy-post-slider' ) }
 						initialOpen={ true }
 					>
 						<fieldset>
 							<CheckboxControl
-								label={ __(
-									'Show Title',
-									'parfait-designs-post-slider'
-								) }
+								label={ __( 'Show Title', 'easy-post-slider' ) }
 								checked={ attributes.content.showTitle }
 								onChange={ ( value ) =>
 									setAttributes( {
@@ -84,13 +81,13 @@ export default function Edit( { attributes, setAttributes } ) {
 								}
 								help={ __(
 									'Toggle post title visibility',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 							/>
 							<CheckboxControl
 								label={ __(
 									'Show Excerpt',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 								checked={ attributes.content.showExcerpt }
 								onChange={ ( value ) =>
@@ -103,7 +100,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								}
 								help={ __(
 									'Toggle post excerpt visibility',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 							/>
 							<CheckboxControl
@@ -119,13 +116,13 @@ export default function Edit( { attributes, setAttributes } ) {
 								}
 								help={ __(
 									'Toggle post link visibility',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 							/>
 							<CheckboxControl
 								label={ __(
 									'Content Background',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 								checked={ attributes.content.background }
 								onChange={ ( value ) =>
@@ -138,13 +135,13 @@ export default function Edit( { attributes, setAttributes } ) {
 								}
 								help={ __(
 									'Disabling this feature may affect the readability of some text.',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 							/>
 							<CheckboxControl
 								label={ __(
 									'Transparent background',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 								checked={ attributes.content.transparentBg }
 								onChange={ ( value ) =>
@@ -157,13 +154,13 @@ export default function Edit( { attributes, setAttributes } ) {
 								}
 								help={ __(
 									'Enabling this feature may affect the readability of some text.',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 							/>
 							<label htmlFor="content-background-color-control">
 								{ __(
 									'Content Background Color',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 							</label>
 							<ColorPalette
@@ -217,15 +214,12 @@ export default function Edit( { attributes, setAttributes } ) {
 						</fieldset>
 					</PanelBody>
 					<PanelBody
-						title={ __( 'Styles', 'parfait-designs-post-slider' ) }
+						title={ __( 'Styles', 'easy-post-slider' ) }
 						initialOpen={ false }
 					>
 						<fieldset>
 							<label htmlFor="button-color-control">
-								{ __(
-									'Button Color',
-									'parfait-designs-post-slider'
-								) }
+								{ __( 'Button Color', 'easy-post-slider' ) }
 							</label>
 							<ColorPalette
 								style={ { margin: '12px 0' } }
@@ -245,10 +239,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								}
 							/>
 							<label htmlFor="scrollbar-color-control">
-								{ __(
-									'Scrollbar Color',
-									'parfait-designs-post-slider'
-								) }
+								{ __( 'Scrollbar Color', 'easy-post-slider' ) }
 							</label>
 							<ColorPalette
 								style={ { margin: '12px 0' } }
@@ -268,7 +259,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<CheckboxControl
 								label={ __(
 									'show scrollbar',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 								checked={ attributes.scrollbar.showScrollbar }
 								onChange={ ( value ) =>
@@ -281,13 +272,13 @@ export default function Edit( { attributes, setAttributes } ) {
 								}
 								help={ __(
 									'Toggle scrollbar visibility',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 							/>
 							<RangeControl
 								label={ __(
 									'cover image overlay',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 								value={ attributes.coverImage.opacity }
 								onChange={ ( value ) =>
@@ -303,10 +294,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								step={ 1 }
 							/>
 							<label htmlFor="overlay-color-control">
-								{ __(
-									'Overlay Color',
-									'parfait-designs-post-slider'
-								) }
+								{ __( 'Overlay Color', 'easy-post-slider' ) }
 							</label>
 							<ColorPalette
 								style={ { margin: '12px 0' } }
@@ -328,14 +316,14 @@ export default function Edit( { attributes, setAttributes } ) {
 						</fieldset>
 					</PanelBody>
 					<PanelBody
-						title={ __( 'Query', 'parfait-designs-post-slider' ) }
+						title={ __( 'Query', 'easy-post-slider' ) }
 						initialOpen={ false }
 					>
 						<fieldset>
 							<RangeControl
 								label={ __(
 									'number of posts',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 								value={ attributes.query.posts_per_page }
 								onChange={ ( value ) =>
@@ -354,7 +342,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								<SelectControl
 									label={ __(
 										'filter by category',
-										'parfait-designs-post-slider'
+										'easy-post-slider'
 									) }
 									value={ attributes.query.cat }
 									options={ categories.map(
@@ -376,7 +364,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<TextControl
 								label={ __(
 									'filter by tag(s)',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 								value={ attributes.query.tag_slug__in.join() }
 								onChange={ ( value ) =>
@@ -389,7 +377,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								}
 								help={ __(
 									'Separate tags with comas',
-									'parfait-designs-post-slider'
+									'easy-post-slider'
 								) }
 							/>
 						</fieldset>
@@ -426,17 +414,14 @@ export default function Edit( { attributes, setAttributes } ) {
 				>
 					{ attributes.content.showTitle && (
 						<h2 className="slide__title">
-							{ __(
-								'Post Title',
-								'parfait-designs-post-slider'
-							) }
+							{ __( 'Post Title', 'easy-post-slider' ) }
 						</h2>
 					) }
 					{ attributes.content.showExcerpt && (
 						<p className="slide__excerpt">
 							{ __(
 								'This is an example of the post excerpt. So she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid) whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.',
-								'parfait-designs-post-slider'
+								'easy-post-slider'
 							) }
 						</p>
 					) }
@@ -451,10 +436,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										color: attributes.buttons.fontColor,
 									} }
 								>
-									{ __(
-										'Read More',
-										'parfait-designs-post-slider'
-									) }
+									{ __( 'Read More', 'easy-post-slider' ) }
 								</span>
 								<span
 									id="button-overlay"
