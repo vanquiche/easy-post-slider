@@ -4,7 +4,7 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<section <?php echo get_block_wrapper_attributes(); ?> aria-label='featured post slider'>
+<section <?php echo get_block_wrapper_attributes(array('class' => 'easy-post-slider-wrapper')); ?> aria-label='featured post slider'>
 	<?php
 	include_once 'assets/php/hex_to_rgb.php';
 
@@ -77,7 +77,7 @@
 							<div class='slide-content__read-more'>
 								<a class='slide-content__read-more-link' href="<?php echo the_permalink() ?>" tabindex="0">
 									<span class='slide-content__read-more-label' style='color: <?php echo $attributes["buttons"]["fontColor"] ?>'>
-										<?php esc_html_e('Read Now', 'parfait-designs-post-slider') ?>
+										<?php esc_html_e('Read Now', 'easy-post-slider') ?>
 									</span>
 									<span class='overlay' style='background-color: <?php echo $attributes["buttons"]["bgColor"] ?>;' aria-hidden='true'></span>
 								</a>
