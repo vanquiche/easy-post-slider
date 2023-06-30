@@ -47,6 +47,7 @@ export default class PostSlider {
 					button.classList.remove( 'hide' );
 				} else {
 					button.classList.add( 'hide' );
+					button.blur();
 				}
 			} );
 		}
