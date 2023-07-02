@@ -55,7 +55,9 @@ const units = [
 export default function Edit( { attributes, setAttributes } ) {
 	const categories = useSelect(
 		( select ) =>
-			select( 'core' ).getEntityRecords( 'taxonomy', 'category' ),
+			select( 'core' ).getEntityRecords( 'taxonomy', 'category', {
+				per_page: -1,
+			} ),
 		[]
 	);
 
