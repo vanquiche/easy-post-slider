@@ -17,12 +17,12 @@
 			'relation' => 'OR',
 			array(
 				'taxonomy' => 'post_tag',
-				'field' => 'slug',
+				'field' => 'name',
 				'terms' => $attributes['query']['tag_slug__in'],
 			),
 			array(
 				'taxonomy' => 'category',
-				'field' => 'id',
+				'field' => 'name',
 				'terms' => $attributes['query']['cat'],
 			)
 		)

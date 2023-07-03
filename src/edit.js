@@ -12,8 +12,6 @@ import { COLORS, BG_COLORS } from './assets/js/palette';
 import {
 	RangeControl,
 	ColorPalette,
-	TextControl,
-	SelectControl,
 	CheckboxControl,
 	__experimentalUnitControl as UnitControl,
 	__experimentalAlignmentMatrixControl as AlignmentMatrixControl,
@@ -34,6 +32,7 @@ import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import TaxonomyControl from './assets/components/TaxonomyControl';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -53,14 +52,6 @@ const units = [
 ];
 
 export default function Edit( { attributes, setAttributes } ) {
-	const categories = useSelect(
-		( select ) =>
-			select( 'core' ).getEntityRecords( 'taxonomy', 'category', {
-				per_page: -1,
-			} ),
-		[]
-	);
-
 	return (
 		<>
 			<InspectorControls>
@@ -340,47 +331,37 @@ export default function Edit( { attributes, setAttributes } ) {
 								max={ 6 }
 								step={ 1 }
 							/>
-							{ categories && (
-								<SelectControl
-									label={ __(
-										'filter by category',
-										'easy-post-slider'
-									) }
-									value={ attributes.query.cat }
-									options={ categories.map(
-										( { name, id } ) => ( {
-											label: name,
-											value: id,
-										} )
-									) }
-									onChange={ ( value ) =>
-										setAttributes( {
-											query: {
-												...attributes.query,
-												cat: parseInt( value ),
-											},
-										} )
-									}
-								/>
-							) }
-							<TextControl
+							<TaxonomyControl
 								label={ __(
-									'filter by tag(s)',
+									'Filter by categories',
 									'easy-post-slider'
 								) }
-								value={ attributes.query.tag_slug__in.join() }
-								onChange={ ( value ) =>
+								taxonomyType="category"
+								value={ attributes.query.cat }
+								onChange={ ( tokens ) =>
 									setAttributes( {
 										query: {
 											...attributes.query,
-											tag_slug__in: value.split( ',' ),
+											cat: tokens,
 										},
 									} )
 								}
-								help={ __(
-									'Separate tags with comas',
+							/>
+							<TaxonomyControl
+								label={ __(
+									'Filter by tag(s)',
 									'easy-post-slider'
 								) }
+								taxonomyType="post_tag"
+								value={ attributes.query.tag_slug__in }
+								onChange={ ( tokens ) =>
+									setAttributes( {
+										query: {
+											...attributes.query,
+											tag_slug__in: tokens,
+										},
+									} )
+								}
 							/>
 						</fieldset>
 					</PanelBody>
