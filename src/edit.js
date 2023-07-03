@@ -4,7 +4,6 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-import { useSelect } from '@wordpress/data';
 import getContrastColor from './assets/js/getContrastColor';
 import getHexToRgb from './assets/js/getHexToRgb';
 import { COLORS, BG_COLORS } from './assets/js/palette';
@@ -16,6 +15,7 @@ import {
 	__experimentalUnitControl as UnitControl,
 	__experimentalAlignmentMatrixControl as AlignmentMatrixControl,
 	PanelBody,
+	RadioControl,
 } from '@wordpress/components';
 /**
  * React hook that is used to mark the block wrapper element.
@@ -51,11 +51,23 @@ const units = [
 	{ value: 'em', label: 'em', default: 0 },
 ];
 
+const scrollbarTypesOptions = [
+	{
+		label: __( 'Progress', 'easy-post-slider' ),
+		value: 'progress',
+	},
+	{
+		label: __( 'Dots', 'easy-post-slider' ),
+		value: 'dots',
+	},
+];
+
 export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
 				<div className="editor-post-slider-controls">
+					{ /* CONTENT */ }
 					<PanelBody
 						title={ __( 'Content', 'easy-post-slider' ) }
 						initialOpen={ true }
@@ -206,6 +218,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							/>
 						</fieldset>
 					</PanelBody>
+					{ /* STYLES */ }
 					<PanelBody
 						title={ __( 'Styles', 'easy-post-slider' ) }
 						initialOpen={ false }
@@ -263,11 +276,25 @@ export default function Edit( { attributes, setAttributes } ) {
 										},
 									} )
 								}
-								help={ __(
-									'Toggle scrollbar visibility',
-									'easy-post-slider'
-								) }
 							/>
+							{ attributes.scrollbar.showScrollbar && (
+								<RadioControl
+									label={ __(
+										'Scrollbar type',
+										'easy-post-slider'
+									) }
+									selected={ attributes.scrollbar.type }
+									options={ scrollbarTypesOptions }
+									onChange={ ( value ) =>
+										setAttributes( {
+											scrollbar: {
+												...attributes.scrollbar,
+												type: value,
+											},
+										} )
+									}
+								/>
+							) }
 							<RangeControl
 								label={ __(
 									'cover image overlay',
@@ -308,6 +335,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							/>
 						</fieldset>
 					</PanelBody>
+					{ /* QUERY */ }
 					<PanelBody
 						title={ __( 'Query', 'easy-post-slider' ) }
 						initialOpen={ false }
@@ -436,27 +464,57 @@ export default function Edit( { attributes, setAttributes } ) {
 						</div>
 					) }
 				</div>
+				{ /* SCROLLBAR */ }
 				{ attributes.scrollbar.showScrollbar && (
 					<div
 						id="slide-scrollbar"
 						className="slide__scrollbar"
 						aria-hidden
 					>
-						<div
-							className="slide__scrollbar-inner"
-							style={ {
-								backgroundColor: attributes.scrollbar.color,
-								width: '75%',
-							} }
-						></div>
-						<div
-							className="slide__scrollbar-inner"
-							style={ {
-								backgroundColor: attributes.scrollbar.color,
-								width: '100%',
-								opacity: 0.5,
-							} }
-						></div>
+						{ attributes.scrollbar.type === 'progress' ? (
+							<>
+								<div
+									className="slide__scrollbar-inner"
+									style={ {
+										backgroundColor:
+											attributes.scrollbar.color,
+										width: '75%',
+									} }
+								></div>
+								<div
+									className="slide__scrollbar-inner"
+									style={ {
+										backgroundColor:
+											attributes.scrollbar.color,
+										width: '100%',
+										opacity: 0.5,
+									} }
+								></div>
+							</>
+						) : (
+							<div className="slide__scrollbar-dots">
+								<span
+									className="scrollbar-dot scrollbar-dot--fill"
+									style={ {
+										borderColor: attributes.scrollbar.color,
+										backgroundColor:
+											attributes.scrollbar.color,
+									} }
+								></span>
+								<span
+									style={ {
+										borderColor: attributes.scrollbar.color,
+									} }
+									className="scrollbar-dot"
+								></span>
+								<span
+									style={ {
+										borderColor: attributes.scrollbar.color,
+									} }
+									className="scrollbar-dot"
+								></span>
+							</div>
+						) }
 					</div>
 				) }
 				<button

@@ -33,7 +33,8 @@
 			"type": "object",
 			"default": {
 				"showScrollbar": true,
-				"color": "#f6fff8"
+				"color": "#f6fff8",
+				"type": "bar"
 			}
 		},
 		"coverImage": {

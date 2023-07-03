@@ -115,6 +115,26 @@
 	z-index: 10;
 }
 
+.slide__scrollbar-dots {
+	position: absolute;
+	bottom: 15px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.scrollbar-dot {
+	height: 12px;
+	width: 12px;
+	border: 1px solid;
+	border-radius: 50%;
+}
+
+.scrollbar-dot--fill {
+	background-color: black;
+}
+
 .slide__scrollbar-inner {
 	position: absolute;
 	left: 0;
