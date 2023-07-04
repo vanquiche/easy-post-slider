@@ -1,12 +1,12 @@
 import getHexToRgb from './getHexToRgb';
 
 export default class PostSlider {
-	slideWrapper: Element;
+	slideWrapper: HTMLElement;
 	slider: HTMLUListElement | null;
 	scrollbarProgress: HTMLDivElement | null;
 	scrollbarDots: HTMLDivElement | null;
 	navigationButtons: NodeListOf< HTMLButtonElement > | null;
-	constructor( slideWrapper: Element ) {
+	constructor( slideWrapper: HTMLElement ) {
 		this.slideWrapper = slideWrapper;
 		this.slider = slideWrapper.querySelector( '.post-slider' );
 		this.scrollbarProgress = slideWrapper.querySelector(
@@ -62,6 +62,7 @@ export default class PostSlider {
 	handleNavigationButtonClick( button: Element ) {
 		const action = button.getAttribute( 'data-post-slider-action' );
 		if ( this.slider ) {
+			this.scrollToTopSlider();
 			const scrollIncrement =
 				this.slider.scrollWidth / this.slider.children.length;
 			const currentScrollPosition = this.slider.scrollLeft;
@@ -218,6 +219,14 @@ export default class PostSlider {
 					image.style.opacity = '1';
 				} );
 			}
+		} );
+	}
+
+	scrollToTopSlider() {
+		window.scroll( {
+			top: this.slideWrapper.offsetTop,
+			left: 0,
+			behavior: 'smooth',
 		} );
 	}
 }
