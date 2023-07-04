@@ -6,7 +6,7 @@ export default function TaxonomyControl( {
 	taxonomyType,
 	value,
 	onChange,
-	queryArgs = { per_page: -1 },
+	queryArgs,
 } ) {
 	const taxonomy = useSelect(
 		( select ) =>
@@ -14,7 +14,7 @@ export default function TaxonomyControl( {
 				per_page: -1,
 				...queryArgs,
 			} ),
-		[]
+		[ taxonomyType, queryArgs ]
 	);
 
 	if ( ! taxonomy ) return null;
