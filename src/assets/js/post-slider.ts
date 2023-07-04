@@ -1,12 +1,18 @@
+import getHexToRgb from './getHexToRgb';
+
 export default class PostSlider {
 	slideWrapper: Element;
 	slider: HTMLUListElement | null;
-	scrollbarInner: HTMLDivElement | null;
+	scrollbarProgress: HTMLDivElement | null;
+	scrollbarDots: HTMLDivElement | null;
 	navigationButtons: NodeListOf< HTMLButtonElement > | null;
 	constructor( slideWrapper: Element ) {
 		this.slideWrapper = slideWrapper;
 		this.slider = slideWrapper.querySelector( '.post-slider' );
-		this.scrollbarInner = slideWrapper.querySelector( '.scrollbar__inner' );
+		this.scrollbarProgress = slideWrapper.querySelector(
+			'.scrollbar-progress__inner'
+		);
+		this.scrollbarDots = slideWrapper.querySelector( '.scrollbar-dots' );
 		this.navigationButtons = slideWrapper.querySelectorAll(
 			'[data-post-slider="navigation-button"]'
 		);
@@ -23,11 +29,11 @@ export default class PostSlider {
 	// event listeners
 	wrapperHoverEvent() {
 		this.slideWrapper.addEventListener( 'mouseenter', () => {
-			this.removeHideClass( true );
+			this.hideNavigationButton( true );
 		} );
 
 		this.slideWrapper.addEventListener( 'mouseleave', () => {
-			this.removeHideClass( false );
+			this.hideNavigationButton( false );
 		} );
 	}
 	navigationButtonEvent() {
@@ -40,7 +46,7 @@ export default class PostSlider {
 		}
 	}
 
-	removeHideClass( action: boolean ) {
+	hideNavigationButton( action: boolean ) {
 		if ( this.navigationButtons ) {
 			this.navigationButtons.forEach( ( button ) => {
 				if ( action ) {
@@ -138,11 +144,33 @@ export default class PostSlider {
 	}
 
 	setScrollbarPosition( slideNumber: number ) {
-		if ( slideNumber && this.slider && this.scrollbarInner ) {
+		// set postion for progress scrollbar
+		if ( slideNumber && this.slider && this.scrollbarProgress ) {
 			const scrollbarInnerWidth = Math.round(
 				( slideNumber / this.slider.children.length ) * 100
 			);
-			this.scrollbarInner.style.width = scrollbarInnerWidth + '%';
+			this.scrollbarProgress.style.width = scrollbarInnerWidth + '%';
+		}
+
+		// set position for dot scrollbar
+		if ( slideNumber && this.slider && this.scrollbarDots ) {
+			const attributeBgColor = this.scrollbarDots.getAttribute(
+				'data-scrollbar-style-bg-color'
+			);
+			const dots = this.scrollbarDots.querySelectorAll(
+				'.scrollbar-dots__dot'
+			) as NodeListOf< HTMLSpanElement >;
+			dots.forEach( ( dot ) => {
+				const dotPosition = dot.getAttribute( 'data-scrollbar-dot' );
+				if ( dotPosition && parseInt( dotPosition ) === slideNumber ) {
+					dot.style.backgroundColor =
+						( attributeBgColor &&
+							getHexToRgb( attributeBgColor, 1 ) ) ||
+						'';
+				} else {
+					dot.style.backgroundColor = '';
+				}
+			} );
 		}
 	}
 

@@ -109,6 +109,7 @@
 	padding: 2rem 3rem;
 	z-index: 90;
 	max-width: 900px;
+	box-sizing: border-box;
 
 	&:focus {
 		outline: 2px solid rgb(245, 9, 9);
@@ -136,6 +137,10 @@
 	max-width: 1200px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+
+	@media screen and (max-width: 675px) {
+		max-height: 200px;
+	}
 }
 
 .slide-content__read-more {
@@ -189,7 +194,7 @@
 	height: 0;
 }
 
-.scrollbar {
+.scrollbar-progress {
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -200,16 +205,33 @@
 	backdrop-filter: blur(4px);
 }
 
-.scrollbar__inner {
+.scrollbar-progress__inner {
 	transform-origin: left;
 	height: 100%;
 	transition: width 175ms ease;
 }
 
-.scrollbar__overlay {
+.scrollbar-progress__overlay {
 	position: absolute;
 	height: 100%;
 	width: 100%;
 	opacity: 0.5;
 	inset: 0;
+}
+
+.scrollbar-dots {
+	position: absolute;
+	bottom: 15px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+	z-index: 100;
+}
+
+.scrollbar-dots__dot {
+	height: 12px;
+	width: 12px;
+	border: 1px solid;
+	border-radius: 50%;
 }

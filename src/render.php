@@ -48,10 +48,18 @@
 		<div data-post-slider='live-region' class='visuallyhidden' aria-live="polite" aria-atomic="true"></div>
 		<!-- scrollbar -->
 		<?php if ($attributes['scrollbar']['showScrollbar'] && $query->post_count > 1) : ?>
-			<div data-post-slider='scrollbar' class='scrollbar' aria-hidden='true'>
-				<div data-post-slider='scrollbar-inner' class='scrollbar__inner' style='background-color: <?php echo $attributes["scrollbar"]["color"] ?>;'></div>
-				<div data-post-slider='scrollbar-overlay' class='scrollbar__overlay' style='background-color: <?php echo $attributes["scrollbar"]["color"] ?>;'></div>
-			</div>
+			<?php if ($attributes['scrollbar']['type'] ==  'progress') : ?>
+				<div data-post-slider='scrollbar' class='scrollbar-progress' aria-hidden='true'>
+					<div data-post-slider='scrollbar-inner' class='scrollbar-progress__inner' style='background-color: <?php echo $attributes["scrollbar"]["color"] ?>;'></div>
+					<div data-post-slider='scrollbar-overlay' class='scrollbar-progress__overlay' style='background-color: <?php echo $attributes["scrollbar"]["color"] ?>;'></div>
+				</div>
+			<?php else : ?>
+				<div data-post-slider='scrollbar' class='scrollbar-dots' data-scrollbar-style-bg-color='<?php echo $attributes["scrollbar"]["color"] ?>' aria-hidden='true'>
+					<?php for ($i = 0; $i < $query->post_count; $i++) : ?>
+						<span class='scrollbar-dots__dot' data-scrollbar-dot='<?php echo $i + 1 ?>' style='border-color: <?php echo $attributes["scrollbar"]["color"] ?>;'></span>
+					<?php endfor ?>
+				</div>
+			<?php endif  ?>
 		<?php endif ?>
 		<!-- slider -->
 		<ul class='post-slider' style='min-height: <?php echo $attributes["content"]["minHeight"] ?>' aria-label='featured posts'>
@@ -75,7 +83,7 @@
 						<?php endif ?>
 						<?php if ($attributes['content']['showLink']) : ?>
 							<div class='slide-content__read-more'>
-								<a class='slide-content__read-more-link' href="<?php echo the_permalink() ?>" tabindex="0">
+								<a class='slide-content__read-more-link' href='<?php echo the_permalink() ?>' tabindex='0'>
 									<span class='slide-content__read-more-label' style='color: <?php echo $attributes["buttons"]["fontColor"] ?>'>
 										<?php esc_html_e('Read Now', 'easy-post-slider') ?>
 									</span>
