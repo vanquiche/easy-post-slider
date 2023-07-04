@@ -223,6 +223,7 @@ export default class PostSlider {
 	}
 
 	scrollToTopSlider() {
+		if ( window.scrollY < this.slideWrapper.offsetTop ) return;
 		window.scroll( {
 			top: this.slideWrapper.offsetTop,
 			left: 0,
