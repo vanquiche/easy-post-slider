@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Plugin Name:       Parfait Designs Post Slider
- * Description:       Example block scaffolded with Create Block tool.
+ * Plugin Name:      	Easy Post Slider
+ * Description:       A custom dynamic block to query and display your posts in a slider component.
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
+ * Author:           	Steve Vang
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       parfait-designs-post-slider
+ * Text Domain:      	easy-post-slider
  *
  * @package           create-block
  */
@@ -28,3 +28,5 @@ function create_block_parfait_designs_post_slider_block_init()
 add_action('init', 'create_block_parfait_designs_post_slider_block_init');
 
 add_image_size('blurry-thumbnail', 10, 10);
+
+wp_enqueue_script('smooth-scroll-polyfill', 'https://cdnjs.cloudflare.com/ajax/libs/iamdustan-smoothscroll/0.4.0/smoothscroll.min.js');
