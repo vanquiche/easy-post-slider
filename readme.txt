@@ -62,6 +62,10 @@ So, why wait? Get Easy Post Slider now and transform your posts into an eye-catc
 
 == Frequently Asked Questions ==
 
+= How do I start using Easy Post Slider? =
+
+Easy Post Slider is a custom block made for the Gutenberg Editor that can be inserted into your page or post like any other block. In the editor, click one of the plus icons in the interface to open the block inserter, then search for and select the "Easy Post Slider" block.
+
 = Will Easy Post Slider work with my theme? =
 
 Easy Post Slider was designed specifically for the Gutenberg editor. If your theme supports Gutenberg and you're already using it, you can start using the Easy Post Slider block without any extra steps.
