@@ -94,10 +94,10 @@
 					</article>
 					<!-- cover image overlay -->
 					<div class='slide-content__image-overlay opacity--<?php echo $attributes["coverImage"]["opacity"] * 10 ?>' style='background-color: <?php echo $attributes["coverImage"]["overlayColor"] ?>' aria-hidden='true'></div>
-					<!-- hires cover image -->
-					<?php echo the_post_thumbnail('full', array('class' => 'slide-content__image-full', 'alt' => '')) ?>
 					<!-- lores placeholder image -->
 					<?php echo the_post_thumbnail('blurry-thumbnail', array('class' => 'slide-content__image-thumbnail', 'alt' => '')) ?>
+					<!-- hires cover image -->
+					<?php echo the_post_thumbnail('full', array('class' => 'slide-content__image-full', 'alt' => '')) ?>
 				</li>
 			<?php endwhile ?>
 		</ul>
