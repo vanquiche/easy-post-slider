@@ -6,14 +6,20 @@
 ?>
 <section <?php echo get_block_wrapper_attributes(array('class' => 'easy-post-slider-wrapper')); ?> aria-label='featured post slider'>
 	<?php
+	// include only once to prevent fatal error when multiple sliders are added
 	include_once 'assets/php/hex_to_rgb.php';
 
 	$args = array(
 		'post_type' => 'post',
 		'orderby' => 'date',
 		'order' => 'DESC',
-		'posts_per_page' => $attributes['query']['posts_per_page'],
-		'tax_query' => array(
+		'post_status' => 'publish',
+		'posts_per_page' => $attributes['query']['posts_per_page']
+	);
+
+	// add tax query to argument if user has filter by tags and/or category
+	if ($attributes['query']['tag_slug__in'] || $attributes['query']['cat']) {
+		$args['tax_query'] = array(
 			'relation' => 'OR',
 			array(
 				'taxonomy' => 'post_tag',
@@ -25,8 +31,9 @@
 				'field' => 'name',
 				'terms' => $attributes['query']['cat'],
 			)
-		)
-	);
+		);
+	}
+
 	$query = new WP_Query($args);
 
 	if ($query->have_posts()) : ?>
@@ -103,6 +110,7 @@
 		</ul>
 	<?php
 	endif;
+	// reset global $post value
 	wp_reset_postdata();
 	?>
 </section>
