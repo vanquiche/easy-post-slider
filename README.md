@@ -2,11 +2,11 @@
 
 ## Features
 
-Easy Post Slider is a custom Wordpress block that displays your posts in a slider/carousel component. This block comes with several settings from customizing appearance to query filters. This Slider is fully responsive to all screen sizes and meets accessibility standards. Out of the box this block supports lazy and blurry loading of images to ensure that performance is priority.
+Easy Post Slider is a customizable WordPress block designed to showcase your posts in a dynamic slider format. This block offers a range of settings to personalize the appearance and apply query filters. This slider is fully responsive, adapting seamlessly to different screen sizes, and adheres to accessibility standards. It also includes built-in features such as lazy and blurry loading of images, prioritizing performance right from the start.
 
 ## Installation
 
-This block is currently under review to be release on the Wordpress Plugin Directory. If you would like to start using this block now in your Wordpress site then follow the instructions below.
+This block is currently undergoing a review process before its release on the WordPress Plugin Directory. However, if you're eager to start using this block on your WordPress site right away, please follow the instructions provided below.
 
 1. Clone this repository `git clone https://github.com/vanquiche/easy-post-slider.git`
 
@@ -14,7 +14,7 @@ This block is currently under review to be release on the Wordpress Plugin Direc
 
 3. Install dependencies
 
-4. Create the `easy-post-slider.zip` by running `npm run plugin-zip`
+4. Create the compress folder, `easy-post-slider.zip` by running `npm run plugin-zip`
 
 5. Log into your Wordpress Admin dashboard
 
