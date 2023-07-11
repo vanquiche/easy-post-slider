@@ -21,12 +21,13 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_parfait_designs_post_slider_block_init()
+function create_block_easy_post_slider()
 {
 	register_block_type(__DIR__ . '/build');
 }
-add_action('init', 'create_block_parfait_designs_post_slider_block_init');
+add_action('init', 'create_block_easy_post_slider');
 
 add_image_size('blurry-thumbnail', 10, 10);
 
+// smooth scroll polyfill for mobile devices
 wp_enqueue_script('smooth-scroll-polyfill', 'https://cdnjs.cloudflare.com/ajax/libs/iamdustan-smoothscroll/0.4.0/smoothscroll.min.js');
