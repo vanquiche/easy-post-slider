@@ -12,7 +12,7 @@ This block is currently undergoing a review process before its release on the Wo
 
 2. Navigate into your cloned repository
 
-3. Install dependencies
+3. Install dependencies `npm install`
 
 4. Create the compress folder, `easy-post-slider.zip` by running `npm run plugin-zip`
 
