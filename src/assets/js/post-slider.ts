@@ -8,11 +8,13 @@ export default class PostSlider {
 	navigationButtons: NodeListOf< HTMLButtonElement > | null;
 	constructor( slideWrapper: HTMLElement ) {
 		this.slideWrapper = slideWrapper;
-		this.slider = slideWrapper.querySelector( '.post-slider' );
+		this.slider = slideWrapper.querySelector( '.easy-ps-post-slider' );
 		this.scrollbarProgress = slideWrapper.querySelector(
-			'.scrollbar-progress__inner'
+			'.easy-ps-scrollbar-progress__inner'
 		);
-		this.scrollbarDots = slideWrapper.querySelector( '.scrollbar-dots' );
+		this.scrollbarDots = slideWrapper.querySelector(
+			'.easy-ps-scrollbar-dots'
+		);
 		this.navigationButtons = slideWrapper.querySelectorAll(
 			'[data-post-slider="navigation-button"]'
 		);
@@ -50,9 +52,9 @@ export default class PostSlider {
 		if ( this.navigationButtons ) {
 			this.navigationButtons.forEach( ( button ) => {
 				if ( action ) {
-					button.classList.remove( 'hide' );
+					button.classList.remove( 'easy-ps-hide' );
 				} else {
-					button.classList.add( 'hide' );
+					button.classList.add( 'easy-ps-hide' );
 					button.blur();
 				}
 			} );
@@ -88,7 +90,7 @@ export default class PostSlider {
 		// set height of slider to match height of largest slide
 		if ( this.slider ) {
 			const slides = Array.from(
-				this.slider.querySelectorAll( '.slide-content' )
+				this.slider.querySelectorAll( '.easy-ps-slide-content' )
 			).map( ( s ) => s.clientHeight );
 			const largetSlideHeight = Math.max( ...slides );
 			this.slider.style.height = 100 + largetSlideHeight + 'px';
@@ -97,7 +99,9 @@ export default class PostSlider {
 
 	setIntersectionObservers() {
 		if ( this.slider ) {
-			const slides = this.slider.querySelectorAll( '.slide-content' );
+			const slides = this.slider.querySelectorAll(
+				'.easy-ps-slide-content'
+			);
 			const options = {
 				root: this.slideWrapper,
 				threshold: 0.25,
@@ -159,7 +163,7 @@ export default class PostSlider {
 				'data-scrollbar-style-bg-color'
 			);
 			const dots = this.scrollbarDots.querySelectorAll(
-				'.scrollbar-dots__dot'
+				'.easy-ps-scrollbar-dots__dot'
 			) as NodeListOf< HTMLSpanElement >;
 			dots.forEach( ( dot ) => {
 				const dotPosition = dot.getAttribute( 'data-scrollbar-dot' );
@@ -208,7 +212,7 @@ export default class PostSlider {
 
 	blurryLoadImagesInit() {
 		const images = this.slideWrapper.querySelectorAll(
-			'.slide-content__image-full'
+			'.easy-ps-slide-content__image-full'
 		) as NodeListOf< HTMLImageElement >;
 		images.forEach( ( image ) => {
 			// when images have loaded then fade in image

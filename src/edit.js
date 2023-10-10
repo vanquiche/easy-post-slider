@@ -66,7 +66,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<div className="editor-post-slider-controls">
+				<div className="easy-ps-editor-post-slider-controls">
 					{ /* CONTENT */ }
 					<PanelBody
 						title={ __( 'Content', 'easy-post-slider' ) }
@@ -215,6 +215,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									} )
 								}
 								units={ units }
+								label={ __( 'Min Height', 'easy-post-slider' ) }
 							/>
 						</fieldset>
 					</PanelBody>
@@ -397,7 +398,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			</InspectorControls>
 			<div
 				{ ...useBlockProps( {
-					className: `editor-post-slider align-content--${ attributes.content.alignment }`,
+					className: `easy-ps-editor-post-slider easy-ps-align-content--${ attributes.content.alignment }`,
 					style: {
 						height: attributes.content.minHeight
 							? attributes.content.minHeight
@@ -406,9 +407,9 @@ export default function Edit( { attributes, setAttributes } ) {
 				} ) }
 			>
 				<div
-					className={ `slide__content ${
+					className={ `easy-ps-slide__content ${
 						attributes.content.background
-							? 'blur-bg drop-shadow'
+							? 'easy-ps-blur-bg drop-shadow'
 							: ''
 					}` }
 					style={ {
@@ -424,12 +425,12 @@ export default function Edit( { attributes, setAttributes } ) {
 					} }
 				>
 					{ attributes.content.showTitle && (
-						<h2 className="slide__title">
+						<h2 className="easy-ps-slide__title">
 							{ __( 'Post Title', 'easy-post-slider' ) }
 						</h2>
 					) }
 					{ attributes.content.showExcerpt && (
-						<p className="slide__excerpt">
+						<p className="easy-ps-slide__excerpt">
 							{ __(
 								'This is an example of the post excerpt. So she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid) whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.',
 								'easy-post-slider'
@@ -438,11 +439,11 @@ export default function Edit( { attributes, setAttributes } ) {
 					) }
 					{ attributes.content.showLink && (
 						<div
-							className={ `slide__link-container align-content--${ attributes.content.alignment }` }
+							className={ `easy-ps-slide__link-container easy-ps-align-content--${ attributes.content.alignment }` }
 						>
-							<a className="slide__link">
+							<a className="easy-ps-slide__link">
 								<span
-									className="slide__link-label"
+									className="easy-ps-slide__link-label"
 									style={ {
 										color: attributes.buttons.fontColor,
 									} }
@@ -451,7 +452,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								</span>
 								<span
 									id="button-overlay"
-									className="slide__link-overlay blur-bg"
+									className="easy-ps-slide__link-overlay easy-ps-blur-bg"
 									style={ {
 										backgroundColor:
 											attributes.buttons.bgColor,
@@ -468,13 +469,13 @@ export default function Edit( { attributes, setAttributes } ) {
 				{ attributes.scrollbar.showScrollbar && (
 					<div
 						id="slide-scrollbar"
-						className="slide__scrollbar"
+						className="easy-ps-slide__scrollbar"
 						aria-hidden
 					>
 						{ attributes.scrollbar.type === 'progress' ? (
 							<>
 								<div
-									className="slide__scrollbar-inner"
+									className="easy-ps-slide__scrollbar-inner"
 									style={ {
 										backgroundColor:
 											attributes.scrollbar.color,
@@ -482,7 +483,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									} }
 								></div>
 								<div
-									className="slide__scrollbar-inner"
+									className="easy-ps-slide__scrollbar-inner"
 									style={ {
 										backgroundColor:
 											attributes.scrollbar.color,
@@ -492,9 +493,9 @@ export default function Edit( { attributes, setAttributes } ) {
 								></div>
 							</>
 						) : (
-							<div className="slide__scrollbar-dots">
+							<div className="easy-ps-slide__scrollbar-dots">
 								<span
-									className="scrollbar-dot scrollbar-dot--fill"
+									className="easy-ps-scrollbar-dot easy-ps-scrollbar-dot--fill"
 									style={ {
 										borderColor: attributes.scrollbar.color,
 										backgroundColor:
@@ -505,13 +506,13 @@ export default function Edit( { attributes, setAttributes } ) {
 									style={ {
 										borderColor: attributes.scrollbar.color,
 									} }
-									className="scrollbar-dot"
+									className="easy-ps-scrollbar-dot"
 								></span>
 								<span
 									style={ {
 										borderColor: attributes.scrollbar.color,
 									} }
-									className="scrollbar-dot"
+									className="easy-ps-scrollbar-dot"
 								></span>
 							</div>
 						) }
@@ -519,18 +520,18 @@ export default function Edit( { attributes, setAttributes } ) {
 				) }
 				<button
 					id="slide-left"
-					className="slide__navigation-button left"
+					className="easy-ps-slide__navigation-button easy-ps-left"
 					aria-label="previous slide"
 				>
 					<i
-						className="caret-left"
+						className="easy-ps-caret-left"
 						style={ {
 							backgroundColor: attributes.buttons.fontColor,
 						} }
 						aria-hidden
 					></i>
 					<span
-						className="button-overlay blur-bg"
+						className="easy-ps-button-overlay easy-ps-blur-bg"
 						style={ {
 							backgroundColor: attributes.buttons.bgColor,
 						} }
@@ -538,18 +539,18 @@ export default function Edit( { attributes, setAttributes } ) {
 				</button>
 				<button
 					id="slide-right"
-					className="slide__navigation-button right"
+					className="easy-ps-slide__navigation-button easy-ps-right"
 					aria-label="next slide"
 				>
 					<i
-						className="caret-right"
+						className="easy-ps-caret-right"
 						style={ {
 							backgroundColor: attributes.buttons.fontColor,
 						} }
 						aria-hidden
 					></i>
 					<span
-						className="button-overlay blur-bg"
+						className="easy-ps-button-overlay easy-ps-blur-bg"
 						style={ {
 							backgroundColor: attributes.buttons.bgColor,
 							opacity: attributes.buttons.opacity + '%',
@@ -557,7 +558,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					></span>
 				</button>
 				<div
-					className="editor-slide__cover-image__overlay"
+					className="easy-ps-editor-slide__cover-image__overlay"
 					style={ {
 						backgroundColor: getHexToRgb(
 							attributes.coverImage.overlayColor,
@@ -568,7 +569,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				></div>
 				<div
 					id="post-slider-cover-image"
-					className="editor-slide__cover-image"
+					className="easy-ps-editor-slide__cover-image"
 					aria-hidden="true"
 				></div>
 			</div>

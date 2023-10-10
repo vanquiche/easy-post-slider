@@ -1,163 +1,163 @@
 // alignment  classes
 // align-items property aligns vertically (left to right)
-.align-content--top-left {
+.easy-ps-align-content--top-left {
 	align-items: start;
 	justify-content: start;
 	text-align: left;
 }
 
-.align-content--top-center {
+.easy-ps-align-content--top-center {
 	align-items: center;
 	justify-content: start;
 	text-align: center;
 }
 
-.align-content--top-right {
+.easy-ps-align-content--top-right {
 	align-items: end;
 	justify-content: start;
 	text-align: right;
 }
 
 // align middle  classes
-.align-content--center-left {
+.easy-ps-align-content--center-left {
 	align-items: start;
 	justify-content: center;
 	text-align: left;
 }
 
-.align-content--center-center {
+.easy-ps-align-content--center-center {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 }
 
-.align-content--center-right {
+.easy-ps-align-content--center-right {
 	align-items: end;
 	justify-content: center;
 	text-align: right;
 }
 // // align bottom classes
-.align-content--bottom-left {
+.easy-ps-align-content--bottom-left {
 	align-items: start;
 	justify-content: end;
 	text-align: left;
 }
 
-.align-content--bottom-center {
+.easy-ps-align-content--bottom-center {
 	align-items: center;
 	justify-content: end;
 	text-align: center;
 }
 
-.align-content--bottom-right {
+.easy-ps-align-content--bottom-right {
 	align-items: end;
 	justify-content: end;
 	text-align: right;
 }
 
 // filters classes
-.blur-bg {
+.easy-ps-blur-bg {
 	backdrop-filter: blur(8px);
 }
 
 // position classes
-.left {
+.easy-ps-left {
 	left: 0;
 }
 
-.right {
+.easy-ps-right {
 	right: 0;
 }
 
-.top-50 {
+.easy-ps-top-50 {
 	top: 50%;
 	transform: translateY(-50%);
 }
 
-.m-horizontal--16 {
+.easy-ps-m-horizontal--16 {
 	margin: 0 16px;
 }
 
 // icons
 
-.caret-left {
+.easy-ps-caret-left {
 	mask-image: url(./assets/icons/caret-left-solid.svg);
 	mask-repeat: no-repeat;
 	mask-position: center center;
 }
 
-.caret-right {
+.easy-ps-caret-right {
 	mask-image: url(./assets/icons/caret-right-solid.svg);
 	mask-repeat: no-repeat;
 	mask-position: center center;
 }
 
 // overlay classes
-.button-overlay {
+.easy-ps-button-overlay {
 	position: absolute;
 	z-index: 0;
 	inset: 0;
 	display: block;
 	height: 100%;
 
-	@extend .blur-bg;
+	@extend .easy-ps-blur-bg;
 }
 
-.hide {
+.easy-ps-hide {
 	opacity: 0;
 }
 
-.drop-shadow {
+.easy-ps-drop-shadow {
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.07), 0 4px 2px rgba(0, 0, 0, 0.07),
 		0 8px 4px rgba(0, 0, 0, 0.07), 0 16px 8px rgba(0, 0, 0, 0.07),
 		0 32px 16px rgba(0, 0, 0, 0.07);
 }
 
 // opacity classes
-.opacity--0 {
+.easy-ps-opacity--0 {
 	opacity: 0;
 }
 
-.opacity--10 {
+.easy-ps-opacity--10 {
 	opacity: 0.1;
 }
 
-.opacity--20 {
+.easy-ps-opacity--20 {
 	opacity: 0.2;
 }
 
-.opacity--30 {
+.easy-ps-opacity--30 {
 	opacity: 0.3;
 }
 
-.opacity--40 {
+.easy-ps-opacity--40 {
 	opacity: 0.4;
 }
 
-.opacity--50 {
+.easy-ps-opacity--50 {
 	opacity: 0.5;
 }
 
-.opacity--60 {
+.easy-ps-opacity--60 {
 	opacity: 0.6;
 }
 
-.opacity--70 {
+.easy-ps-opacity--70 {
 	opacity: 0.7;
 }
 
-.opacity--80 {
+.easy-ps-opacity--80 {
 	opacity: 0.8;
 }
 
-.opacity--90 {
+.easy-ps-opacity--90 {
 	opacity: 0.9;
 }
 
-.opacity--100 {
+.easy-ps-opacity--100 {
 	opacity: 1;
 }
 
-.visuallyhidden {
+.easy-ps-visuallyhidden {
 	opacity: 0;
 }

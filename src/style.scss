@@ -14,7 +14,7 @@
 	padding-right: 0 !important;
 }
 
-.post-slider {
+.easy-ps-post-slider {
 	position: relative;
 	padding: 0;
 	margin: 0;
@@ -42,7 +42,7 @@
 	}
 }
 
-.navigation-button-wrapper {
+.easy-ps-navigation-button-wrapper {
 	position: absolute;
 	z-index: 100;
 
@@ -51,7 +51,7 @@
 	}
 }
 
-.navigation-button {
+.easy-ps-navigation-button {
 	height: 35px;
 	width: 35px;
 	padding: 0;
@@ -75,13 +75,13 @@
 	}
 }
 
-.overlay {
+.easy-ps-overlay {
 	position: absolute;
 	inset: 0;
 	z-index: 0;
 }
 
-.caret {
+.easy-ps-caret {
 	display: block;
 	position: absolute;
 	height: 100%;
@@ -90,7 +90,7 @@
 	z-index: 100;
 }
 
-.slide {
+.easy-ps-slide {
 	position: absolute;
 	left: 0;
 	width: 100%;
@@ -107,7 +107,7 @@
 	}
 }
 
-.slide-content {
+.easy-ps-slide-content {
 	padding: 2rem 3rem;
 	z-index: 90;
 	max-width: 900px;
@@ -125,17 +125,17 @@
 	}
 }
 
-.cover-image {
+.easy-ps-cover-image {
 	background-position: center center;
 }
 
-.slide-content__title,
-.slide-content__excerpt,
-.slide-content__read-more {
+.easy-ps-slide-content__title,
+.easy-ps-slide-content__excerpt,
+.easy-ps-slide-content__read-more {
 	margin: 0.5rem 0;
 }
 
-.slide-content__excerpt {
+.easy-ps-slide-content__excerpt {
 	max-width: 1200px;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -145,22 +145,22 @@
 	}
 }
 
-.slide-content__read-more {
+.easy-ps-slide-content__read-more {
 	margin: 1rem 0;
 }
 
-.slide-content__read-more-link {
+.easy-ps-slide-content__read-more-link {
 	display: inline-block;
 	position: relative;
 	padding: 1rem;
 }
 
-.slide-content__read-more-label {
+.easy-ps-slide-content__read-more-label {
 	z-index: 10;
 	position: relative;
 }
 
-.slide-content__image-overlay {
+.easy-ps-slide-content__image-overlay {
 	position: absolute;
 	inset: 0;
 	height: 100%;
@@ -168,7 +168,7 @@
 	z-index: 20;
 }
 
-.slide-content__image-full {
+.easy-ps-slide-content__image-full {
 	position: absolute;
 	inset: 0;
 	object-fit: cover;
@@ -180,7 +180,7 @@
 	transition: opacity 250ms ease;
 }
 
-.slide-content__image-thumbnail {
+.easy-ps-slide-content__image-thumbnail {
 	position: absolute;
 	inset: 0;
 	object-fit: cover;
@@ -190,13 +190,13 @@
 	z-index: 0;
 }
 
-.visuallyhidden {
+.easy-ps-visuallyhidden {
 	pointer-events: none;
 	width: 0;
 	height: 0;
 }
 
-.scrollbar-progress {
+.easy-ps-scrollbar-progress {
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -207,13 +207,13 @@
 	backdrop-filter: blur(4px);
 }
 
-.scrollbar-progress__inner {
+.easy-ps-scrollbar-progress__inner {
 	transform-origin: left;
 	height: 100%;
 	transition: width 175ms ease;
 }
 
-.scrollbar-progress__overlay {
+.easy-ps-scrollbar-progress__overlay {
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -221,7 +221,7 @@
 	inset: 0;
 }
 
-.scrollbar-dots {
+.easy-ps-scrollbar-dots {
 	position: absolute;
 	bottom: 15px;
 	width: 100%;
@@ -231,7 +231,7 @@
 	z-index: 100;
 }
 
-.scrollbar-dots__dot {
+.easy-ps-scrollbar-dots__dot {
 	height: 12px;
 	width: 12px;
 	border: 1px solid;
