@@ -30,4 +30,10 @@ add_action('init', 'create_block_easy_post_slider');
 add_image_size('blurry-thumbnail', 10, 10);
 
 // smooth scroll polyfill for mobile devices
-wp_enqueue_script('smooth-scroll-polyfill', 'https://cdnjs.cloudflare.com/ajax/libs/iamdustan-smoothscroll/0.4.0/smoothscroll.min.js');
+function add_smoothscroll_polyfill_script()
+{
+	wp_register_script('smoothscroll_polyfill', 'https://cdnjs.cloudflare.com/ajax/libs/iamdustan-smoothscroll/0.3.6/smoothscroll.min.js', array(), false, true);
+	wp_enqueue_script('smoothscroll_polyfill');
+}
+
+add_action('wp_enqueue_scripts', 'add_smoothscroll_polyfill_script');
