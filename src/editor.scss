@@ -93,6 +93,7 @@
 	align-items: center;
 	justify-content: center;
 	margin: 0.5rem 0;
+	border: none;
 }
 
 .easy-ps-slide__link-label {
@@ -133,7 +134,7 @@
 }
 
 .easy-ps-scrollbar-dot--fill {
-	background-color: black;
+	background-color: #000000;
 }
 
 .easy-ps-slide__scrollbar-inner {
