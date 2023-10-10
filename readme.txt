@@ -1,5 +1,5 @@
 === Easy Post Slider ===
-Contributors:      Steve Vang
+Contributors:      parfaitdesigns
 Tags:              block, post, slider, carousel
 Tested up to:      6.3
 Stable tag:        0.1.1
@@ -10,7 +10,7 @@ License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
 Easy Post Slider is a block component used to query and display posts in a slider format.
 
-Note: This plugin uses a polyfill script to enable smooth scroll on mobile devices. You can check out the repository here, https://github.com/iamdustan/smoothscroll
+This plugin uses a polyfill script to enable smooth scroll on mobile devices. You can learn moure about this script here, https://github.com/iamdustan/smoothscroll
 
 == Description ==
 

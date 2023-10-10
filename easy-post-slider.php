@@ -2,11 +2,13 @@
 
 /**
  * Plugin Name:      	Easy Post Slider
- * Description:       A custom dynamic block to query and display your posts in a slider component.
+ * Description:       A custom block that displays your posts in a slider component.
+ * Plugin URI: 				https://parfaitdesigns.com/
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.1
- * Author:           	Steve Vang
+ * Author:           	Parfait Designs
+ * Author URI:				https://parfaitdesigns.com/about/
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:      	easy-post-slider
