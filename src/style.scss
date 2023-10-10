@@ -10,6 +10,8 @@
 .easy-post-slider-wrapper {
 	overflow-x: hidden;
 	position: relative;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 .post-slider {
@@ -19,7 +21,7 @@
 	list-style-type: none;
 	box-sizing: border-box;
 	width: 100%;
-	height: 250px;
+	height: fit-content;
 
 	// scroll behavior
 	overflow-x: scroll;
