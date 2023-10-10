@@ -441,7 +441,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						<div
 							className={ `easy-ps-slide__link-container easy-ps-align-content--${ attributes.content.alignment }` }
 						>
-							<a className="easy-ps-slide__link">
+							<button className="easy-ps-slide__link">
 								<span
 									className="easy-ps-slide__link-label"
 									style={ {
@@ -461,7 +461,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									} }
 									aria-hidden
 								></span>
-							</a>
+							</button>
 						</div>
 					) }
 				</div>
